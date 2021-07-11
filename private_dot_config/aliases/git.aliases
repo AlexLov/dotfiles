@@ -1,0 +1,37 @@
+alias g="git"
+alias ga="git add"
+alias gaa='git add .'
+alias gb="git branch"
+alias gd="git diff"
+alias gs="git status"
+alias gpu="git pull --update"
+
+## Checkout
+alias gc='git checkout'
+alias gcb='git checkout -b'
+
+## Commit
+alias gm='git commit'
+alias gma='git commit --amend'
+alias gmm='git commit -m'
+alias gmma='git commit -am'
+
+## Cherry-pick
+alias gcp="git cherry-pick"
+alias gcpa="git cherry-pick --abort"
+alias gcpc="git cherry-pick --continue"
+alias gcps="git cherry-pick --skip"
+
+## Log
+alias gl='git log'
+alias gv='git log --pretty=format:'%s' | cut -d " " -f 1 | sort | uniq -c | sort -nr'
+alias gpl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+## Git review
+alias gr="git review"
+alias grd="git review -d" # download
+alias grx="git review -x" # cherry-pick
+alias grf="git review -f" # upload
+alias grfr="git review -f -R" # upload withouut rebase
+alias gri="git review -s" # init
+alias grl="git review -l" # list

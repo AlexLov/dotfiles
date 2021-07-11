@@ -1,0 +1,72 @@
+# Test for an interactive shell.  There is no need to set anything
+# past this point for scp and rcp, and it's important to refrain from
+# outputting anything in those cases.
+if [[ $- != *i* ]] ; then
+  # Shell is non-interactive.  Be done now!
+  return
+fi
+
+SHELL_NAME="${SHELL##/bin/}"
+
+# Exports
+if [ -d ${HOME}/.local/bin ]; then
+  PATH="${HOME}/.local/bin:${PATH}"
+fi
+if [ -d ${HOME}/bin ]; then
+  PATH="${HOME}/bin:${PATH}"
+fi
+export PATH
+
+export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
+
+mkdir -p ${XDG_DATA_HOME}
+mkdir -p ${XDG_CONFIG_HOME}
+mkdir -p ${XDG_CACHE_HOME}
+
+## History
+HISTSIZE=1000000
+HISTFILE="${XDG_DATA_HOME}/${SHELL_NAME}/history"
+mkdir -p "$(dirname $HISTFILE)"
+
+# Functions
+FUNCTIONS_DIR="${XDG_CONFIG_HOME}/functions"
+if [ -d "${FUNCTIONS_DIR}" ]; then
+  for function_file in $(ls -1 ${FUNCTIONS_DIR}/*.sh); do
+    . "${function_file}"
+  done
+fi
+
+# Aliases
+ALIASES_DIR="${XDG_CONFIG_HOME}/aliases"
+if [ -d "${ALIASES_DIR}" ]; then
+  for alias_file in $(ls -1 ${ALIASES_DIR}/*.aliases); do
+    . "${alias_file}"
+  done
+fi
+
+# Man pager
+if $(which nvim >/dev/null); then
+  export MANPAGER='nvim +Man!'
+fi
+
+# Init starship - modern shell prompt
+if $(which starship >/dev/null) ;then
+  eval "$(starship init ${SHELL_NAME})"
+fi
+
+# Init zoxide - modern cd
+if $(which zoxide >/dev/null) ;then
+  eval "$(zoxide init ${SHELL_NAME})"
+fi
+
+# Init keychain
+keychain ${HOME}/.ssh/id_ed25519 ${HOME}/.ssh/id_rsa_mcp-scale-jenkins
+. ${HOME}/.keychain/$(hostname -s)-sh
+#. ${HOME}/.keychain/$(hostname -s)-sh-gpg
+
+# Check that process exists by sending 0 signal
+#if pkill -0 -u $(id -u) -f gnome-keyring-daemon; then
+#  export  $(gnome-keyring-daemon --start)
+#fi

@@ -1,0 +1,9 @@
+## Emerge/Portage
+alias e="emerge"
+# Sync portage tree
+alias es="sudo eix-sync"
+# Upgrade world
+alias uw="sudo emerge -DuN @world"
+# Cleanup
+alias ec="sudo emerge --depclean"
+
