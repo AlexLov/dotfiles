@@ -10,7 +10,6 @@ alias l="ls -l"
 alias ll="ls -la"
 
 ## misc tools
-has zoxide && alias cd="zoxide"
 has procs && alias s="procs"
 has colordiff && alias diff="colordiff"
 
