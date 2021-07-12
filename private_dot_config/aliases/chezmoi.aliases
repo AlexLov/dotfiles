@@ -10,6 +10,7 @@ if has chezmoi; then
   alias mga="chezmoi git -- add"
   alias mgaa="chezmoi git -- add ."
   alias mgd="chezmoi git -- diff"
+  alias mgdc="chezmoi git -- diff --cached"
   alias mgs="chezmoi git -- status"
   alias mgm="chezmoi git -- commit"
   alias mgmm="chezmoi git -- commit -m"
