@@ -6,8 +6,6 @@ if [[ $- != *i* ]] ; then
   return
 fi
 
-SHELL_NAME="${SHELL##/bin/}"
-
 # Exports
 if [ -d ${HOME}/.local/bin ]; then
   PATH="${HOME}/.local/bin:${PATH}"
@@ -29,7 +27,7 @@ mkdir -p ${XDG_CACHE_HOME}
 
 ## History
 HISTSIZE=1000000
-HISTFILE="${XDG_DATA_HOME}/${SHELL_NAME}/history"
+HISTFILE="${XDG_DATA_HOME}/$(get_shell_name)/history"
 mkdir -p "$(dirname $HISTFILE)"
 
 # Functions
@@ -55,12 +53,12 @@ fi
 
 # Init starship - modern shell prompt
 if has starship; then
-  eval "$(starship init ${SHELL_NAME})"
+  eval "$(starship init $(get_shell_name))"
 fi
 
 # Init zoxide - modern cd
 if has zoxide; then
-  eval "$(zoxide init ${SHELL_NAME})"
+  eval "$(zoxide init $(get_shell_name))"
 fi
 
 # Init keychain
