@@ -3,7 +3,7 @@ function has() {
 }
 
 function get_shell_name() {
-  if [ -n "${ZSH_VERSION}"]; then
+  if [ -n "${ZSH_VERSION}" ]; then
     echo -n "zsh"
   elif [ -n "${BASH_VERSION}" ]; then
     echo -n "bash"
