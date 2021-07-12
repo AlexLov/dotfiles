@@ -7,12 +7,8 @@ if [[ $- != *i* ]] ; then
 fi
 
 # Exports
-if [ -d ${HOME}/.local/bin ]; then
-  PATH="${HOME}/.local/bin:${PATH}"
-fi
-if [ -d ${HOME}/bin ]; then
-  PATH="${HOME}/bin:${PATH}"
-fi
+test -d ${HOME}/.local/bin && PATH="${HOME}/.local/bin:${PATH}"
+test -d ${HOME}/bin && PATH="${HOME}/bin:${PATH}"
 export PATH
 
 export GOPATH=$HOME/.local/share/go
@@ -47,19 +43,13 @@ HISTFILE="${XDG_DATA_HOME}/$(get_shell_name)/history"
 mkdir -p "$(dirname $HISTFILE)"
 
 # Man pager
-if has nvim; then
-  export MANPAGER='nvim +Man!'
-fi
+has nvim && export MANPAGER='nvim +Man!'
 
 # Init starship - modern shell prompt
-if has starship; then
-  eval "$(starship init $(get_shell_name))"
-fi
+has starship && eval "$(starship init $(get_shell_name))"
 
 # Init zoxide - modern cd
-if has zoxide; then
-  eval "$(zoxide init $(get_shell_name))"
-fi
+has zoxide && eval "$(zoxide init $(get_shell_name))"
 
 # Init keychain
 if has keychain; then
