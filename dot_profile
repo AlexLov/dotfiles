@@ -25,11 +25,6 @@ mkdir -p ${XDG_DATA_HOME}
 mkdir -p ${XDG_CONFIG_HOME}
 mkdir -p ${XDG_CACHE_HOME}
 
-## History
-HISTSIZE=1000000
-HISTFILE="${XDG_DATA_HOME}/$(get_shell_name)/history"
-mkdir -p "$(dirname $HISTFILE)"
-
 # Functions
 FUNCTIONS_DIR="${XDG_CONFIG_HOME}/functions"
 if [ -d "${FUNCTIONS_DIR}" ]; then
@@ -45,6 +40,11 @@ if [ -d "${ALIASES_DIR}" ]; then
     . "${alias_file}"
   done
 fi
+
+## History
+HISTSIZE=1000000
+HISTFILE="${XDG_DATA_HOME}/$(get_shell_name)/history"
+mkdir -p "$(dirname $HISTFILE)"
 
 # Man pager
 if has nvim; then
