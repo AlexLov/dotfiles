@@ -62,3 +62,7 @@ fi
 #if pkill -0 -u $(id -u) -f gnome-keyring-daemon; then
 #  export  $(gnome-keyring-daemon --start)
 #fi
+
+if [ $(get_shell_name) = "zsh" ]; then
+  ZDOTDIR="${HOME}/.config/zsh"
+fi
