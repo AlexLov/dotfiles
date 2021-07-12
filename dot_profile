@@ -47,24 +47,26 @@ if [ -d "${ALIASES_DIR}" ]; then
 fi
 
 # Man pager
-if $(which nvim >/dev/null); then
+if has nvim; then
   export MANPAGER='nvim +Man!'
 fi
 
 # Init starship - modern shell prompt
-if $(which starship >/dev/null) ;then
+if has starship; then
   eval "$(starship init ${SHELL_NAME})"
 fi
 
 # Init zoxide - modern cd
-if $(which zoxide >/dev/null) ;then
+if has zoxide; then
   eval "$(zoxide init ${SHELL_NAME})"
 fi
 
 # Init keychain
-keychain ${HOME}/.ssh/id_ed25519 ${HOME}/.ssh/id_rsa_mcp-scale-jenkins
-. ${HOME}/.keychain/$(hostname -s)-sh
-#. ${HOME}/.keychain/$(hostname -s)-sh-gpg
+if has keychain; then
+  keychain ${HOME}/.ssh/id_ed25519 ${HOME}/.ssh/id_rsa_mcp-scale-jenkins
+  . ${HOME}/.keychain/$(hostname -s)-sh
+  #. ${HOME}/.keychain/$(hostname -s)-sh-gpg
+fi
 
 # Check that process exists by sending 0 signal
 #if pkill -0 -u $(id -u) -f gnome-keyring-daemon; then
