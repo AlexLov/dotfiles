@@ -23,6 +23,11 @@ alias gcpa="git cherry-pick --abort"
 alias gcpc="git cherry-pick --continue"
 alias gcps="git cherry-pick --skip"
 
+## Rebase
+alias grb="git rebase"
+alias grbi="git rebase -i"
+alias grbc="git rebase --continue"
+
 ## Log
 alias gl='git log'
 alias gv='git log --pretty=format:'%s' | cut -d " " -f 1 | sort | uniq -c | sort -nr'
