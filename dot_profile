@@ -39,6 +39,7 @@ fi
 
 ## History
 HISTSIZE=1000000
+SAVEHIST=${HISTSIZE} # for zsh
 HISTFILE="${XDG_DATA_HOME}/$(get_shell_name)/history"
 mkdir -p "$(dirname $HISTFILE)"
 
