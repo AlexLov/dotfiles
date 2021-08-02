@@ -23,5 +23,5 @@ if has chezmoi; then
   alias ms="chezmoi status"
   alias mum="chezmoi unmanaged"
   alias mu="chezmoi update"
-  alias mv="chezmoi verify"
+  alias mvf="chezmoi verify"
 fi
