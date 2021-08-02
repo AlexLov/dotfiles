@@ -20,3 +20,5 @@ has wl-paste && alias p="wl-paste"
 
 ## misc shortener
 alias sp=". ~/.profile" # (s)ource (p)rofile
+
+alias se="sudoedit"
