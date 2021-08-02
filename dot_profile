@@ -54,7 +54,7 @@ has zoxide && eval "$(zoxide init $(get_shell_name))"
 
 # Init keychain
 if has keychain; then
-  keychain ${HOME}/.ssh/id_ed25519 ${HOME}/.ssh/id_rsa_mcp-scale-jenkins 2>/dev/null
+  keychain ${HOME}/.ssh/id_ed25519 ${HOME}/.ssh/id_rsa_mcp-scale-jenkins ${HOME}/.ssh/id_rsa_alovtsov-generated 2>/dev/null
   . ${HOME}/.keychain/$(hostname -s)-sh
   #. ${HOME}/.keychain/$(hostname -s)-sh-gpg
 fi
