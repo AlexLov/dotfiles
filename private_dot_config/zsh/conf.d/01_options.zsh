@@ -1,0 +1,31 @@
+## changing directory
+setopt auto_cd
+## completion
+setopt no_list_beep
+setopt list_packed
+## globbing
+setopt mark_dirs 
+setopt nomatch 
+setopt numeric_glob_sort
+## history
+setopt extended_history 
+setopt no_hist_beep 
+setopt hist_fcntl_lock
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_lex_words
+setopt hist_no_functions
+setopt hist_no_store
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_verify
+setopt share_history
+## input/output
+setopt correct
+setopt no_flow_control # disable freezing terminal with Ctrl-S
+setopt interactive_comments
+setopt path_dirs
+setopt rm_star_silent
+## zle
+setopt no_beep
+setopt vi

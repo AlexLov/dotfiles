@@ -1,0 +1,13 @@
+if [[ -n $ZDOTDIR ]]; then
+	ZSH_CONFIGS_DIR="${ZDOTDIR}/conf.d"
+	ZSH_PLUGINS_DIR="${ZDOTDIR}/plugins"
+fi
+
+if [[ -d "$ZSH_CONFIGS_DIR" ]]; then
+  for config_file in $(ls -1 ${ZSH_CONFIGS_DIR}/*.zsh); do
+    . "${config_file}"
+  done
+fi
+
+## TODO
+zle_highlight=('paste:none')
