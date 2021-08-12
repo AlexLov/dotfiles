@@ -72,6 +72,6 @@ hints:
 key_bindings:
   - { key: Insert,    mods: Shift,                           action: Paste            }
   - { key: V,         mods: Super,                           action: Paste            }
-  - { key: V,         mods: Super|Shift,                     action: PasteSelection             }
+  - { key: V,         mods: Super|Shift,                     action: PasteSelection   }
   - { key: C,         mods: Super,                           action: Copy             }
 
