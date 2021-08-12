@@ -10,27 +10,28 @@ bindkey -v   # Default to standard vi bindings, regardless of EDITOR string
 bindkey -r viins "\e"
 
 # Switch to vi command mode
-bindkey '^G' vi-cmd-mode															# [Ctrl-G]
-bindkey '^]' vi-cmd-mode															# [Ctrl-]]
+bindkey '^G' vi-cmd-mode																# [Ctrl-g]
+bindkey '^]' vi-cmd-mode																# [Ctrl-]]
 
 # Same as enter, needed in -s bindings
-bindkey '^J' accept-line															# [Ctrl-J]
+bindkey '^J' accept-line																# [Ctrl-j]
 
-# Modifying text
-bindkey "^K" kill-whole-line													# [Ctrl-k]
-bindkey '^?' backward-delete-char											# [Backspace] - delete backward
-bindkey '^H' backward-delete-char											# [Backspace]
-bindkey '^W' backward-kill-word												# [Ctrl-W]
-bindkey '^[[3;2~' delete-word													# [Shift-Delete] - forward delete word
+# modifying text
+bindkey "^K" kill-whole-line														# [ctrl-k]
+bindkey '^?' backward-delete-char												# [Backspace] - delete backward
+bindkey '^H' backward-delete-char												# [backspace]
+bindkey '^W' backward-kill-word													# [ctrl-w]
+bindkey '^[[3;2~' delete-word														# [Shift-Delete] - forward delete word
 
-bindkey "\e." insert-last-word												# [Esc-.] - insert last word from 
-																											#						previous command
+bindkey "\e." insert-last-word													# [Esc-.] - insert last word from
+																												#						previous command
 
 # Movement
-bindkey "^[[1;5D" backward-word												# [Ctrl-left arrow]
-bindkey "^[[1;5C" forward-word												# [Ctrl-right arrow]
-bindkey "^A" beginning-of-line												# [Ctrl-A]
-bindkey "^E" end-of-line				  										# [Ctrl-E]
+bindkey "^[[1;5D" backward-word													# [Ctrl-left arrow]
+bindkey "^[[1;5C" forward-word													# [Ctrl-right arrow]
+bindkey "^A" beginning-of-line													# [Ctrl-a]
+bindkey "^E" end-of-line																# [Ctrl-e]
+bindkey "^Y" yank																				# [Ctrl-y] - paste
 
 # Incremental search in insert mode
 bindkey "^F" history-incremental-search-forward
@@ -41,8 +42,8 @@ bindkey -M vicmd '?' vi-history-search-backward
 bindkey -M vicmd '/' vi-history-search-forward
 
 # Beginning search with arrow keys and j/k
-bindkey "^[[A" up-line-or-search											# [Up arrow]
-bindkey "^[[B" down-line-or-search										# [Down arrow]
+bindkey "^[[A" up-line-or-search												# [Up arrow]
+bindkey "^[[B" down-line-or-search											# [Down arrow]
 bindkey -M vicmd "k" up-line-or-search
 bindkey -M vicmd "j" down-line-or-search
 
@@ -52,14 +53,14 @@ bindkey "^P" history-search-backward										# [Ctrl-p]
 bindkey "^N" history-search-forward											# [Ctrl-n]
 
 # Magic space
-bindkey ' ' magic-space                                 # [Space] - do history expansion
+bindkey ' ' magic-space																	# [Space] - do history expansion
 
 # Some fast commands
-bindkey -s "\el" 'ls -l\n'                              # [Esc-l] - run command: ls -l
-bindkey -s '\ej' 'fg\n'                                 # [Esc-j] - run command: fg
-bindkey -s '\ed' 'date\n'                               # [Esc-d] - run command: date
-has git && bindkey -s '\eg' 'git status\n'              # [Esc-g] - run command: git status
-has hg && bindkey -s '\eh' 'hg status\n'                # [Esc-h] - run command: hg status
+bindkey -s "\el" 'ls -l\n'															# [Esc-l] - run command: ls -l
+bindkey -s '\ej' 'fg\n'																	# [Esc-j] - run command: fg
+bindkey -s '\ed' 'date\n'																# [Esc-d] - run command: date
+has git && bindkey -s '\eg' 'git status\n'							# [Esc-g] - run command: git status
+has hg && bindkey -s '\eh' 'hg status\n'								# [Esc-h] - run command: hg status
 
 # Try to utilize terminfo if available w/ fallback
 if [[ "${terminfo[kdch1]}" != "" ]]; then
