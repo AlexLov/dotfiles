@@ -1,0 +1,10 @@
+[init]
+	defaultBranch = main
+[user]
+	email = alex@alexlov.com
+	name = Alex Lov
+[core]
+	pager = bat
+
+[includeIf "gitdir:mirantis/"]
+	path = mirantis.gitconfig
