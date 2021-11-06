@@ -9,6 +9,9 @@ has lsd && alias ls="lsd"
 alias l="ls -l"
 alias ll="ls -la"
 
+## grep
+has rg && alias grep="rg"
+
 ## misc tools
 has procs && alias s="procs"
 has colordiff && alias diff="colordiff"
