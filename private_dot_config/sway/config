@@ -24,10 +24,35 @@ set $term foot
 # Browser
 set $browser firefox
 
+set $wallpaper ~/.config/sway/wallpapers/arsenixc/yumi_and_eureka_by_arsenixc-d3eyoc6.jpg
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg $wallpaper fill
+
+# Lock screen
+# Switch to first (usually en) keyboard layout before lock
+set $lock "swaymsg input 'type:keyboard' xkb_switch_layout 0; swaylock -f -F -e -k -l -s fill -i $wallpaper"
+
+### Idle configuration
+exec swayidle -w \
+         timeout 120 $lock \
+         timeout 117 'swaymsg "output * dpms off"' \
+            resume 'swaymsg "output * dpms on"' \
+         before-sleep $lock \
+         lock $lock
+## Manual lock screen
+bindsym $mod+Escape exec loginctl lock-session
+bindsym $mod+Shift+Escape exec loginctl poweroff
+
+smart_borders on
+smart_gaps on
+# Disable title bar for all windows and set 2 pixel border
+default_border pixel 2
+# Title's font
+#font "DejaVuSansMono Nerd Font Mono" 10
 
 ### Key bindings
 #
@@ -42,7 +67,7 @@ set $browser firefox
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    #bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -52,7 +77,7 @@ set $browser firefox
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym --to-code $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -113,8 +138,8 @@ set $browser firefox
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+bar splith
+    bindsym $mod+minus splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -122,13 +147,13 @@ set $browser firefox
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    bindsym $mod+d fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    #bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -139,11 +164,11 @@ set $browser firefox
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    #bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    #bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
