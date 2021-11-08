@@ -198,3 +198,11 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 bar swaybar_command waybar
+
+# Make firefox's pop-ups floating
+# Window with empty title might be a pop-ups so should be float
+for_window {
+  [app_id="firefox" title="^$"] {
+    floating enable
+  }
+}
