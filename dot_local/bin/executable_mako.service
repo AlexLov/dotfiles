@@ -1,0 +1,19 @@
+#!/bin/sh
+
+COMMAND=mako
+NAME=${COMMAND}
+
+PID_FILE=${XDG_RUNTIME_DIR}/${NAME}.pid
+
+case $1 in
+  start)   start-stop-daemon --start -b -m -p "${PID_FILE}" -- ${COMMAND};;
+  stop)    start-stop-daemon --stop -p "${PID_FILE}";;
+  status)
+    if test -f ${PID_FILE} && kill -0 $(cat ${PID_FILE}); then
+      echo "$NAME started"
+    else
+      echo "$NAME stopped"
+    fi;;
+  restart) $0 stop && $0 start;;
+  *) echo "ERROR: Unknown command: $1. Exit" && exit 1;;
+esac
