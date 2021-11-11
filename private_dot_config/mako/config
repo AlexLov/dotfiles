@@ -1,0 +1,4 @@
+history=0
+# 5 seconds
+default-timeout=5000
+layer=overlay
