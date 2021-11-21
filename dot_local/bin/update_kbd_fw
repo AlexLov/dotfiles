@@ -1,0 +1,122 @@
+#!/bin/bash
+
+set -e
+
+test -n "${DEBUG}" && set -x
+
+QMK_FIRMWARE_PATH="${HOME}/qmk_firmware"
+KEYBOARD_NAME='moonlander'
+KEYMAP_NAME='alexlov'
+KEYMAP_DIR="${QMK_FIRMWARE_PATH}/keyboards/${KEYBOARD_NAME}/keymaps/${KEYMAP_NAME}"
+
+PATCH="
+@@ -282,10 +282,10 @@ void dance_1_reset(qk_tap_dance_state_t
+ void dance_1_finished(qk_tap_dance_state_t *state, void *user_data) {
+     dance_state[1].step = dance_step(state);
+     switch (dance_state[1].step) {
+-        case SINGLE_TAP: layer_move(1); break;
++        case SINGLE_TAP: layer_move(1); register_code16(KC_LANG2); break;
+         case SINGLE_HOLD: register_code16(KC_RCTRL); break;
+-        case DOUBLE_TAP: layer_move(1); break;
+-        case DOUBLE_SINGLE_TAP: layer_move(1); break;
++        case DOUBLE_TAP: layer_move(1); register_code16(KC_LANG2); break;
++        case DOUBLE_SINGLE_TAP: layer_move(1); register_code16(KC_LANG2); break;
+     }
+ }
+ 
+@@ -302,10 +302,10 @@ void dance_2_reset(qk_tap_dance_state_t
+ void dance_2_finished(qk_tap_dance_state_t *state, void *user_data) {
+     dance_state[2].step = dance_step(state);
+     switch (dance_state[2].step) {
+-        case SINGLE_TAP: layer_move(0); break;
++        case SINGLE_TAP: layer_move(0); register_code16(KC_LANG1); break;
+         case SINGLE_HOLD: register_code16(KC_LCTRL); break;
+-        case DOUBLE_TAP: layer_move(0); break;
+-        case DOUBLE_SINGLE_TAP: layer_move(0); break;
++        case DOUBLE_TAP: layer_move(0); register_code16(KC_LANG1); break;
++        case DOUBLE_SINGLE_TAP: layer_move(0); register_code16(KC_LANG1); break;
+     }
+ }
+"
+
+trap on_exit EXIT
+
+function on_exit() {
+	if [[ -n "$DISABLE_CLEANUP" ]]; then
+		echo "Cleanup has been disabled by DISABLE_CLEANUP"
+	elif [[ -n "${TMP_DIR}" ]] && [[ -d "${TMP_DIR}" ]]; then
+		echo "Cleanup $TMP_DIR"
+		rm -fr $TMP_DIR
+	fi
+}
+
+log() {
+	if [[ -n "${LOG_TIMESTAMP}" ]]; then
+		TS="$(date): "
+	fi
+	printf "${TS}$@"
+}
+
+function log_error() {
+	log "ERROR: $@\n\n" >&2
+	return 1
+}
+
+function usage() {
+cat <<EOF
+Usage: $0 <url>
+EOF
+exit ${1:-0}
+}
+
+# return only stderr in output
+function silent_run() {
+	# stdout to /dev/null, stderr to the output
+	$@ 3>&1 1>/dev/null 2>&3
+}
+
+# 1. Download zip archive
+if [[ -n $1 ]]; then
+	TMP_DIR=$(mktemp -d)
+	ERROR=$(cd "${TMP_DIR}" && silent_run wget -q "$1")
+	test -n "${ERROR}" && log_error "Download failed: ${ERROR}"
+	echo "Download done"
+	echo ""
+else
+	set +e
+	log_error "URL to zip file is required"; usage $?
+fi
+
+# 3. Unpack the archive
+ARCHIVE=$(/bin/ls -1 "${TMP_DIR}"/*.zip | head -n1)
+test -z "${ARCHIVE}" && log_error "Could not find zip archive in ${TMP_DIR}"
+
+ERROR=$(cd "${TMP_DIR}" && silent_run unzip "${ARCHIVE}")
+test -n "${ERROR}" && log_error "Unzip failed: ${ERROR}"
+echo "Unzip done"
+echo ""
+
+# 4. Copy files from the archive to ~/qmk_firmware/keyboards/moonlander/keymaps/alexlov
+ERROR=$(silent_run mkdir -p "${KEYMAP_DIR}") 
+test -n "${ERROR}" && log_error "Could not create dir ${KEYMAP_DIR}: ${ERROR}"
+
+SRC_DIR=$(/bin/ls -1d "${TMP_DIR}"/*_source | head -n1)
+test -z "${SRC_DIR}" && log_error "Could not find \*_source dir in ${TMP_DIR}"
+
+ERROR=$(silent_run cp -fa "${SRC_DIR}"/* "${KEYMAP_DIR}"/)
+test -n "${ERROR}" && log_error "Could not copy files from ${SRC_DIR} to ${KEYMAP_DIR}: ${ERROR}"
+echo "Copy new files done"
+echo ""
+
+# 5. Apply patch to keymap.c
+echo -En "$PATCH" | patch ${KEYMAP_DIR}/keymap.c
+echo "Patching done"
+echo ""
+
+# 6. Build firmware - `cd ~/qml_firmware && util/docker_build.sh moonlander:alexlov`
+cd ${QMK_FIRMWARE_PATH} && util/docker_build.sh "${KEYBOARD_NAME}:${KEYMAP_NAME}"
+
+# 7. Flash the firmware
+wally-cli-bin "${QMK_FIRMWARE_PATH}/.build/moonlander_alexlov.bin"
+
+set +x
