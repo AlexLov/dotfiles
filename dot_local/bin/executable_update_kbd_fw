@@ -9,36 +9,6 @@ KEYBOARD_NAME='moonlander'
 KEYMAP_NAME='alexlov'
 KEYMAP_DIR="${QMK_FIRMWARE_PATH}/keyboards/${KEYBOARD_NAME}/keymaps/${KEYMAP_NAME}"
 
-PATCH="
-@@ -282,10 +282,10 @@ void dance_1_reset(qk_tap_dance_state_t
- void dance_1_finished(qk_tap_dance_state_t *state, void *user_data) {
-     dance_state[1].step = dance_step(state);
-     switch (dance_state[1].step) {
--        case SINGLE_TAP: layer_move(1); break;
-+        case SINGLE_TAP: layer_move(1); register_code16(KC_LANG2); break;
-         case SINGLE_HOLD: register_code16(KC_RCTRL); break;
--        case DOUBLE_TAP: layer_move(1); break;
--        case DOUBLE_SINGLE_TAP: layer_move(1); break;
-+        case DOUBLE_TAP: layer_move(1); register_code16(KC_LANG2); break;
-+        case DOUBLE_SINGLE_TAP: layer_move(1); register_code16(KC_LANG2); break;
-     }
- }
- 
-@@ -302,10 +302,10 @@ void dance_2_reset(qk_tap_dance_state_t
- void dance_2_finished(qk_tap_dance_state_t *state, void *user_data) {
-     dance_state[2].step = dance_step(state);
-     switch (dance_state[2].step) {
--        case SINGLE_TAP: layer_move(0); break;
-+        case SINGLE_TAP: layer_move(0); register_code16(KC_LANG1); break;
-         case SINGLE_HOLD: register_code16(KC_LCTRL); break;
--        case DOUBLE_TAP: layer_move(0); break;
--        case DOUBLE_SINGLE_TAP: layer_move(0); break;
-+        case DOUBLE_TAP: layer_move(0); register_code16(KC_LANG1); break;
-+        case DOUBLE_SINGLE_TAP: layer_move(0); register_code16(KC_LANG1); break;
-     }
- }
-"
-
 trap on_exit EXIT
 
 function on_exit() {
@@ -75,7 +45,15 @@ function silent_run() {
 	$@ 3>&1 1>/dev/null 2>&3
 }
 
-# 1. Download zip archive
+# 1. Ensure QMK firmware code is present
+if ! [[ -d $QMK_FIRMWARE_PATH ]]; then
+	ERROR=$(silent_run git clone https://github.com/zsa/qmk_firmware/ "${QMK_FIRMWARE_PATH}")
+	test -n "${ERROR}" && log_error "Git clone failed: ${ERROR}"
+	ERROR=$(cd "${QMK_FIRMWARE_PATH}" && silent_run make git-submodule)
+	test -n "${ERROR}" && log_error "Git submodule init failed: ${ERROR}"
+fi
+
+# 2. Download zip archive
 if [[ -n $1 ]]; then
 	TMP_DIR=$(mktemp -d)
 	ERROR=$(cd "${TMP_DIR}" && silent_run wget -q "$1")
@@ -109,7 +87,7 @@ echo "Copy new files done"
 echo ""
 
 # 5. Apply patch to keymap.c
-echo -En "$PATCH" | patch ${KEYMAP_DIR}/keymap.c
+ sed -i -e 's/\(TAP: layer_move(0);\)/\1 register_code16(KC_LANG1);/g' -e 's/\(TAP: layer_move(1);\)/\1 register_code16(KC_LANG2);/g' ${KEYMAP_DIR}/keymap.c
 echo "Patching done"
 echo ""
 
