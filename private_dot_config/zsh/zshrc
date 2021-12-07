@@ -9,5 +9,11 @@ if [[ -d "$ZSH_CONFIGS_DIR" ]]; then
   done
 fi
 
+if [[ -d "$ZSH_PLUGINS_DIR" ]]; then
+  for plugin_file in $(ls -1 ${ZSH_PLUGINS_DIR}/*.zsh); do
+    . "${plugin_file}"
+  done
+fi
+
 ## TODO
 zle_highlight=('paste:none')
