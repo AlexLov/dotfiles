@@ -7,6 +7,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " Initialize plugin system
 call plug#end()
 
+source $HOME/.config/nvim/colemak.vim
 
 set tabstop=2
 set softtabstop=2
