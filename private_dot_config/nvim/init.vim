@@ -1,3 +1,13 @@
+" Plugin module https://github.com/junegunn/vim-plug
+" Specify a directory for plugins
+call plug#begin(stdpath('data') . '/plugged')
+"
+" Add your plugins here...
+"
+" Initialize plugin system
+call plug#end()
+
+
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
