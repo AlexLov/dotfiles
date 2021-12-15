@@ -15,10 +15,10 @@ set $down j
 set $up k
 set $right l
 # moonlander keyboard bindings
-set $moon_left n
-set $moon_down e
-set $moon_up i
-set $moon_right o
+set $moon_left m
+set $moon_down n
+set $moon_up e
+set $moon_right i
 # Terminal emulator
 set $term foot
 # Browser
@@ -80,7 +80,7 @@ default_border pixel 2
     bindsym --to-code $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+w exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -89,6 +89,10 @@ default_border pixel 2
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
+    bindsym $mod+$moon_left focus left
+    bindsym $mod+$moon_down focus down
+    bindsym $mod+$moon_up focus up
+    bindsym $mod+$moon_right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -100,6 +104,10 @@ default_border pixel 2
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
+    bindsym $mod+Shift+$moon_left move left
+    bindsym $mod+Shift+$moon_down move down
+    bindsym $mod+Shift+$moon_up move up
+    bindsym $mod+Shift+$moon_right move right
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -144,7 +152,7 @@ default_border pixel 2
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+t layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+d fullscreen
@@ -182,6 +190,11 @@ mode "resize" {
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
+    bindsym $moon_left resize shrink width 10px
+    bindsym $moon_down resize grow height 10px
+    bindsym $moon_up resize shrink height 10px
+    bindsym $moon_right resize grow width 10px
+
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
@@ -209,3 +222,7 @@ for_window {
     floating enable
   }
 }
+
+# TODO make it works only for certain apps, like firefox
+#bindsym $mod+c exec wtype -M ctrl c -m ctrl
+#bindsym $mod+v exec wtype -M ctrl v -m ctrl
