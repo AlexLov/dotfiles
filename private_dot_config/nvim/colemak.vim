@@ -12,6 +12,8 @@ noremap I L
 noremap l i
 noremap h n
 noremap j e
+noremap k b
 noremap L I
 noremap H N
 noremap J E
+noremap K B
