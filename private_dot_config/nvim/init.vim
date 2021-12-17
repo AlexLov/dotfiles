@@ -19,3 +19,6 @@ au BufNewFile,BufRead *.yaml.template set filetype=yaml
 au FileType yaml set expandtab
 au FileType groovy set expandtab
 au FileType python set expandtab
+
+" Apply changes in config stored in chezmoi on save
+autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
