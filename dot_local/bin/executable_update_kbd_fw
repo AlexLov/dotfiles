@@ -89,10 +89,10 @@ echo ""
 # 5. Apply patch to keymap.c
 #sed -i -e 's/\(TAP: layer_move(0);\)/\1 register_code16(KC_LANG1);/g' -e 's/\(TAP: layer_move(1);\)/\1 register_code16(KC_LANG2);/g' ${KEYMAP_DIR}/keymap.c
 sed -i -e '/switch (keycode) {/ a \
-    case TO(1):\
+    case TO(7):\
       if (record->event.pressed) {\
         register_code(KC_LANG2);\
-        layer_move(1);\
+        layer_move(7);\
       } else {\
         unregister_code(KC_LANG2);\
       }\
