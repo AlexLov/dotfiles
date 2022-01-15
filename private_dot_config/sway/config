@@ -10,15 +10,10 @@ include *.conf
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# moonlander keyboard bindings
-set $moon_left m
-set $moon_down n
-set $moon_up e
-set $moon_right i
+set $left m
+set $down n
+set $up e
+set $right i
 # Terminal emulator
 set $term foot
 # Browser
@@ -61,9 +56,9 @@ default_border pixel 2
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+p exec $term
     # Start a browser
-    bindsym $mod+Shift+Return exec $browser
+    bindsym $mod+b exec $browser
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -79,10 +74,10 @@ default_border pixel 2
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym --to-code $mod+Shift+r reload
+    bindsym --to-code $mod+Shift+k reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+w exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+z exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -91,10 +86,6 @@ default_border pixel 2
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
-    bindsym $mod+$moon_left focus left
-    bindsym $mod+$moon_down focus down
-    bindsym $mod+$moon_up focus up
-    bindsym $mod+$moon_right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -106,10 +97,6 @@ default_border pixel 2
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
-    bindsym $mod+Shift+$moon_left move left
-    bindsym $mod+Shift+$moon_down move down
-    bindsym $mod+Shift+$moon_up move up
-    bindsym $mod+Shift+$moon_right move right
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -118,6 +105,16 @@ default_border pixel 2
 #
 # Workspaces:
 #
+    bindsym $mod+Control+$right workspace next
+    bindsym $mod+Control+$left workspace prev
+    bindsym $mod+Control+Right workspace next
+    bindsym $mod+Control+Left workspace prev
+
+    bindsym $mod+t workspace number 1
+    bindsym $mod+s workspace number 2
+    bindsym $mod+r workspace number 3
+    bindsym $mod+a workspace number 4
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -141,6 +138,16 @@ default_border pixel 2
     bindsym $mod+F9 workspace number 9
     bindsym $mod+F10 workspace number 10
     # Move focused container to workspace
+    bindsym $mod+Control+Shift+$right move container to workspace next
+    bindsym $mod+Control+Shift+$left move container to workspace prev
+    bindsym $mod+Control+Shift+Right move container to workspace next
+    bindsym $mod+Control+Shift+Left move container to workspace prev
+
+    bindsym $mod+Shift+t move container to workspace number 1
+    bindsym $mod+Shift+s move container to workspace number 2
+    bindsym $mod+Shift+r move container to workspace number 3
+    bindsym $mod+Shift+a move container to workspace number 4
+
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
     bindsym $mod+Shift+3 move container to workspace number 3
@@ -170,16 +177,16 @@ default_border pixel 2
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+bar splith
-    bindsym $mod+minus splitv
+    bindsym $mod+h splith
+    bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
+    bindsym $mod+x layout stacking
     bindsym $mod+w layout tabbed
-    bindsym $mod+t layout toggle split
+    bindsym $mod+d layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+d fullscreen
+    bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
@@ -188,7 +195,7 @@ default_border pixel 2
     #bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    bindsym $mod+u focus parent
 #
 # Scratchpad:
 #
@@ -214,11 +221,6 @@ mode "resize" {
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
-    bindsym $moon_left resize shrink width 10px
-    bindsym $moon_down resize grow height 10px
-    bindsym $moon_up resize shrink height 10px
-    bindsym $moon_right resize grow width 10px
-
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
@@ -229,7 +231,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+c mode "resize"
 
 bindsym XF86MonBrightnessUp exec xbacklight +10
 bindsym XF86MonBrightnessDown exec xbacklight -10
@@ -246,7 +248,3 @@ for_window {
     floating enable
   }
 }
-
-# TODO make it works only for certain apps, like firefox
-#bindsym $mod+c exec wtype -M ctrl c -m ctrl
-#bindsym $mod+v exec wtype -M ctrl v -m ctrl
