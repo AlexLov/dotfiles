@@ -1,3 +1,5 @@
+## nvim
+alias v="nvim"
 ## cat
 has bat && alias cat="bat"
 # To have highlighted long json/yaml from unknown source (web api, for example)
