@@ -74,7 +74,7 @@ default_border pixel 2
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym --to-code $mod+Shift+k reload
+    bindsym --to-code $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+z exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -110,10 +110,8 @@ default_border pixel 2
     bindsym $mod+Control+Right workspace next
     bindsym $mod+Control+Left workspace prev
 
-    bindsym $mod+t workspace number 1
-    bindsym $mod+s workspace number 2
-    bindsym $mod+r workspace number 3
-    bindsym $mod+a workspace number 4
+    bindsym $mod+s workspace number 1
+    bindsym $mod+t workspace number 2
 
     # Switch to workspace
     bindsym $mod+1 workspace number 1
@@ -143,10 +141,8 @@ default_border pixel 2
     bindsym $mod+Control+Shift+Right move container to workspace next
     bindsym $mod+Control+Shift+Left move container to workspace prev
 
-    bindsym $mod+Shift+t move container to workspace number 1
-    bindsym $mod+Shift+s move container to workspace number 2
-    bindsym $mod+Shift+r move container to workspace number 3
-    bindsym $mod+Shift+a move container to workspace number 4
+    bindsym $mod+Shift+s move container to workspace number 1
+    bindsym $mod+Shift+t move container to workspace number 2
 
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -231,7 +227,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+c mode "resize"
+bindsym $mod+r mode "resize"
 
 bindsym XF86MonBrightnessUp exec xbacklight +10
 bindsym XF86MonBrightnessDown exec xbacklight -10
