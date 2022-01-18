@@ -31,9 +31,10 @@ local options = {
 	signcolumn = "yes",												-- always show the sign column, otherwise it would shift the text each time
 	wrap = true,															-- display lines as one long line
 	scrolloff = 3,														-- is one of my fav
-	-- list = true,															-- show special characters like tab
-	sidescrolloff = 3,
-	textwidth = 120,
+	list = true,															-- show special characters like tab
+	sidescrolloff = 3,												-- number of lines to show at top/bottom while scrolling
+	textwidth = 120,													-- Default width for text, useful for autoformatting and egde highlighting
+	colorcolumn = "+1",
 	background = "dark",
 	showbreak="↪",
 }
@@ -45,15 +46,16 @@ end
 vim.opt.shortmess:append "c"
 vim.opt.formatoptions:append "n21"
 vim.opt.iskeyword:append "-"
+-- Diff mode
+vim.opt.diffopt:append "vertical"						-- Always use vertical diff
+vim.opt.diffopt:append "hiddenoff"					-- Do not use diff mode for hidden buffers
 
 -- TODO get rid of vim.cmd as much as possible
 vim.cmd "set whichwrap+=<,>,[,]"
-vim.cmd [[set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮]]
--- TODO for listchars
--- 1. replace tab symbol with something more elegant
--- 2. add sym for trail space
--- 3. add sym for space
-vim.cmd [[set fillchars=diff:⣿,vert:│]]
+--vim.cmd [[set listchars=tab:›\ ,eol:¬,extends:❯,precedes:❮,trail:␣,space:·]]
+--vim.cmd [[set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶,nbsp:⌴]]
+vim.cmd [[set listchars=tab:›\ ,eol:↵,extends:↷,precedes:↶,trail:␣,space:·,nbsp:⌴]]
+vim.cmd [[set fillchars=diff:⣿,vert:│,fold:·]]
 
--- TODO 
--- 1. Highlight trailing spaces
+-- TODO
+-- 1. Install and configure neorg
