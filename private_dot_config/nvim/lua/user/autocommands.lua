@@ -4,19 +4,9 @@ vim.cmd [[
 		autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
 		autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200})
 		autocmd BufWinEnter * :set formatoptions-=r
-		autocmd BufWritePre * :%s/\s\+$//e		" autoremove trailing space
 		autocmd FileType qf set nobuflisted
 	augroup end
 
-	augroup _trailing_spaces
-		autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkred guibg=darkred
-		match ExtraWhitespace /\s\+$/
-		autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-		" Show trailing whitepace and spaces before a tab:
-		autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
-		autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-		autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-		autocmd BufWinLeave * call clearmatches()
 	augroup end
 
 	augroup _git

@@ -44,7 +44,9 @@ return packer.startup(function(use)
 	use "wbthomason/packer.nvim" -- Have packer manage itself
 	use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+
 	use "dstein64/vim-startuptime" -- View startup event timing information need --startuptime vim parameter
+	use "ntpeters/vim-better-whitespace" -- Better whitespace highlighting
 	-- use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 	-- use "numToStr/Comment.nvim" -- Easily comment stuff
 	-- use "kyazdani42/nvim-web-devicons"
