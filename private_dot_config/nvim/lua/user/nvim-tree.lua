@@ -2,6 +2,8 @@
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 vim.g.nvim_tree_add_trailing = 1
 vim.g.nvim_tree_group_empty = 1
+vim.g.nvim_tree_quit_on_open = 0
+vim.g.nvim_tree_highlight_opened_files = 2
 vim.g.nvim_tree_window_picker_chars = "TSRANEIOGMPLDHFUCVWYXKZQ1234567890"
 vim.g.nvim_tree_window_picker_exclude = {
 	filetype = {
