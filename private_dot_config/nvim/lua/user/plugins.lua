@@ -70,6 +70,7 @@ return packer.startup(function(use)
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
 	-- use "lunarvim/darkplus.nvim"
 	use "sainnhe/sonokai" -- High Contrast & Vivid Color Scheme based on Monokai Pro
+	use "shaunsingh/doom-vibrant.nvim"
 
 	-- -- cmp plugins
 	-- use "hrsh7th/nvim-cmp" -- The completion plugin
