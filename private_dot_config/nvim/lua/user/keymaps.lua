@@ -22,7 +22,7 @@ vim.g.maplocalleader = " "
 -- Toggele 'list' option on and off
 keymap("n", "<leader>l", ":set list!<CR>", opts)
 -- Clean trailing whitespace
-keymap("n", "<leader>ts", ":let _s=@/ <Bar> :%s/\\s\\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>", opts)
+keymap("n", "<leader>ts", ":StripWhitespace<CR>", opts)
 
 -- Scroll half screen on Shift-PgUp/PgDown
 keymap("n", "<S-PageUp>", "<C-U>", opts)
