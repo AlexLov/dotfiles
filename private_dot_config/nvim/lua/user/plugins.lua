@@ -47,6 +47,10 @@ return packer.startup(function(use)
 
 	use "dstein64/vim-startuptime" -- View startup event timing information need --startuptime vim parameter
 	use "ntpeters/vim-better-whitespace" -- Better whitespace highlighting
+
+	use "kyazdani42/nvim-web-devicons"
+	use "kyazdani42/nvim-tree.lua"
+
 	-- use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 	-- use "numToStr/Comment.nvim" -- Easily comment stuff
 	-- use "kyazdani42/nvim-web-devicons"

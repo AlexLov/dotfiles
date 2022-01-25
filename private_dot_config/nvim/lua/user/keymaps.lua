@@ -76,3 +76,6 @@ keymap("v", "p", '"_dP', opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-- File Browser
+--keymap("n", "<C-n>", ":Lexplore<CR>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
