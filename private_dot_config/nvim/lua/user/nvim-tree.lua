@@ -1,10 +1,14 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
+
 vim.g.nvim_tree_add_trailing = 1
 vim.g.nvim_tree_group_empty = 1
-vim.g.nvim_tree_quit_on_open = 0
+vim.g.nvim_tree_root_folder_modifier = ":t"
+vim.g.nvim_tree_quit_on_open = 1
+vim.g.nvim_tree_git_hl = 0
 vim.g.nvim_tree_highlight_opened_files = 2
-vim.g.nvim_tree_window_picker_chars = "TSRANEIOGMPLDHFUCVWYXKZQ1234567890"
+vim.g.nvim_tree_disable_window_picker = 0
+vim.g.nvim_tree_window_picker_chars = "TNHESOAICLRUDPMVXKWFZQ1230456789"
 vim.g.nvim_tree_window_picker_exclude = {
 	filetype = {
 		"help",
@@ -155,10 +159,6 @@ nvim_tree.setup {
 		cmd = "trash",
 		require_confirm = true,
 	},
-	quit_on_open = 0,
-	git_hl = 1,
-	disable_window_picker = 0,
-	root_folder_modifier = ":t",
 	show_icons = {
 		git = 1,
 		folders = 1,

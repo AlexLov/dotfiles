@@ -49,7 +49,7 @@ vim.cmd [[
 	" Apply changes in config stored in chezmoi on save
 	autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
 
-	autocmd FileType NvimTree autocmd BufLeave <buffer> NvimTreeRefresh
+	autocmd FileType NvimTree autocmd BufWinEnter,BufLeave <buffer> NvimTreeRefresh
 ]]
 
 -- augroup _alpha
