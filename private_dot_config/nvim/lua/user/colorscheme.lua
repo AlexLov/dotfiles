@@ -2,7 +2,6 @@
 -- the configuration options should be placed before `colorscheme sonokai`.
 -- available values: `'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`, `'espresso'`
 vim.g.sonokai_style = 'default'
-vim.g.sonokai_cursor = 'purple'
 vim.g.sonokai_enable_italic = 1
 vim.g.sonokai_current_word = 'grey background'
 vim.g.sonokai_diagnostic_text_highlight = 1
@@ -17,6 +16,7 @@ vim.cmd [[
 function! s:sonokai_custom() abort
 	let l:palette = sonokai#get_palette('default')
 	call sonokai#highlight('NvimTreeOpenedFile', l:palette.green, l:palette.none, 'bold')
+	call sonokai#highlight('IndentBlanklineContextChar', l:palette.purple, l:palette.none, 'nocombine')
 endfunction
 
 augroup SonokaiCustom

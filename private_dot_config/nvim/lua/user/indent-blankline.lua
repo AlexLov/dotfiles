@@ -3,8 +3,6 @@ if not status_ok then
 	return
 end
 
-vim.cmd [[highlight IndentBlanklineContextChar guifg=#C678DD gui=nocombine]]
-
 indent_blankline.setup {
 	enabled	= true,
 	space_char_blankline = " ",
