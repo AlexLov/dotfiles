@@ -40,21 +40,19 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-	-- My plugins here
+	-- Kinda library plugins
 	use "wbthomason/packer.nvim" -- Have packer manage itself
 	use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+	use "kyazdani42/nvim-web-devicons" -- Nice icons used by various plugins
 
+	-- Quality of Life kinda plugins
 	use "dstein64/vim-startuptime" -- View startup event timing information need --startuptime vim parameter
 	use "ntpeters/vim-better-whitespace" -- Better whitespace highlighting
-
-	use "kyazdani42/nvim-web-devicons"
-	use "kyazdani42/nvim-tree.lua"
+	use "lukas-reineke/indent-blankline.nvim" -- Indent guides
 
 	-- use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 	-- use "numToStr/Comment.nvim" -- Easily comment stuff
-	-- use "kyazdani42/nvim-web-devicons"
-	-- use "kyazdani42/nvim-tree.lua"
 	-- use "akinsho/bufferline.nvim"
 	-- use "moll/vim-bbye"
 	-- use "nvim-lualine/lualine.nvim"
@@ -79,6 +77,9 @@ return packer.startup(function(use)
 	-- use "hrsh7th/cmp-cmdline" -- cmdline completions
 	-- use "saadparwaiz1/cmp_luasnip" -- snippet completions
 	-- use "hrsh7th/cmp-nvim-lsp"
+	-- Nvim Tree
+	use "kyazdani42/nvim-tree.lua"
+
 
 	-- -- snippets
 	-- use "L3MON4D3/LuaSnip" --snippet engine
