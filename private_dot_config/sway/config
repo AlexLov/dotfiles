@@ -105,8 +105,9 @@ default_border pixel 2
 #
 # Workspaces:
 #
-		bindsym $mod+Tab workspace next
+		bindsym $mod+Tab workspace back_and_forth
 		bindsym $mod+Shift+Tab workspace prev
+		bindsym $mod+Control+Tab workspace next
 
 		bindsym $mod+Control+$right workspace next
 		bindsym $mod+Control+$left workspace prev
