@@ -105,15 +105,18 @@ default_border pixel 2
 #
 # Workspaces:
 #
+		bindsym $mod+Tab workspace next
+		bindsym $mod+Shift+Tab workspace prev
+
 		bindsym $mod+Control+$right workspace next
 		bindsym $mod+Control+$left workspace prev
 		bindsym $mod+Control+Right workspace next
 		bindsym $mod+Control+Left workspace prev
 
-		bindsym $mod+t workspace number 1
-		bindsym $mod+h workspace number 2
-		bindsym $mod+s workspace number 3
-		bindsym $mod+a workspace number 4
+		bindsym $mod+a workspace number 1
+		bindsym $mod+s workspace number 2
+		bindsym $mod+h workspace number 3
+		bindsym $mod+t workspace number 4
 
 		# Switch to workspace
 		bindsym $mod+1 workspace number 1
@@ -143,10 +146,10 @@ default_border pixel 2
 		bindsym $mod+Control+Shift+Right move container to workspace next
 		bindsym $mod+Control+Shift+Left move container to workspace prev
 
-		bindsym $mod+Shift+t move container to workspace number 1
-		bindsym $mod+Shift+h move container to workspace number 2
-		bindsym $mod+Shift+s move container to workspace number 3
-		bindsym $mod+Shift+a move container to workspace number 4
+		bindsym $mod+Shift+a move container to workspace number 1
+		bindsym $mod+Shift+s move container to workspace number 2
+		bindsym $mod+Shift+h move container to workspace number 3
+		bindsym $mod+Shift+t move container to workspace number 4
 
 		bindsym $mod+Shift+1 move container to workspace number 1
 		bindsym $mod+Shift+2 move container to workspace number 2
