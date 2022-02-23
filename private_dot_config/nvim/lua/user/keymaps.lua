@@ -48,6 +48,10 @@ keymap("n", "<S-Left>", ":bprevious<CR>", opts)
 --keymap("n", "<A-Down>", "<Esc>:m .+1<CR>==gi", opts)
 --keymap("n", "<A-Up>", "<Esc>:m .-2<CR>==gi", opts)
 
+-- Convinient shortcuts
+keymap("n", "ZZ", ":wqa<CR>", opts)  -- write all buffers and exit
+keymap("n", "QQ", ":qa!<CR>", opts)  -- quit all buffers without saving
+
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "dh", "<ESC>", opts)
