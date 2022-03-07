@@ -1,0 +1,21 @@
+# Common settings
+set tabstop 1
+set number on
+set icons true
+
+# Keybindings
+map ? doc
+
+# Openner
+cmd open ${{
+	 case $(file --mime-type $f -b) in
+			 text/*) vi $fx;;
+			 *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+	 esac
+}}
+
+# Previewer
+set preview on
+set previewer ~/.config/lf/pv.sh
+map i $LESSOPEN='| ~/.config/lf/pv.sh %s' less -R $f
+

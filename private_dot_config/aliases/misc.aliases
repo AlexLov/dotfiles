@@ -14,6 +14,9 @@ alias ll="ls -la"
 ## grep
 has rg && alias grep="rg"
 
+# File browser
+has lf && alias f="lf"
+
 ## misc tools
 has procs && alias s="procs"
 has colordiff && alias diff="colordiff"
