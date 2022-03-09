@@ -26,6 +26,8 @@ set $wallpaper ~/.config/sway/wallpapers/arsenixc/yumi_and_eureka_by_arsenixc-d3
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output * bg $wallpaper fill
+# Disable HDMI by default
+output DP-2 disable
 
 # Lock screen
 # Switch to first (usually en) keyboard layout before lock
