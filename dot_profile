@@ -67,3 +67,6 @@ fi
 if [ $(get_shell_name) = "zsh" ]; then
   ZDOTDIR="${HOME}/.config/zsh"
 fi
+
+# Add icons to lf (file manager)
+has lf && [ -f "${XDG_CONFIG_HOME}/lf/icons" ] && source "${XDG_CONFIG_HOME}/lf/icons"
