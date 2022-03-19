@@ -6,6 +6,6 @@ case "$1" in
   *.rar) unrar l "$1";;
   *.7z) 7z l "$1";;
   *.pdf) pdftotext "$1" -;;
-  *) bat --color=always --terminal-width="$2" --paging=never "$1";;
+  *) bat --color=always --paging=never "$1";;
 esac
 
