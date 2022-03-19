@@ -1,5 +1,5 @@
 function has() {
-  which $1 >/dev/null
+  which $1 >/dev/null 2>&1
 }
 
 function get_shell_name() {
