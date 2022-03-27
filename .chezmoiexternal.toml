@@ -32,3 +32,8 @@
 #	type = "file"
 #	url = "https://raw.githubusercontent.com/jeffreytse/zsh-vi-mode/master/zsh-vi-mode.zsh"
 #	refreshPeriod = "672h"
+
+## Nyoom
+[".config/nvim"]
+	type = "git-repo"
+	url = "git@github.com:AlexLov/nyoom.nvim.git"
