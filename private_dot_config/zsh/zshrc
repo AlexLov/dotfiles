@@ -4,13 +4,13 @@ if [[ -n $ZDOTDIR ]]; then
 fi
 
 if [[ -d "$ZSH_CONFIGS_DIR" ]]; then
-  for config_file in $(ls -1 ${ZSH_CONFIGS_DIR}/*.zsh); do
+  for config_file in $(find ${ZSH_CONFIGS_DIR} -type f -iname '*.zsh'); do
     . "${config_file}"
   done
 fi
 
 if [[ -d "$ZSH_PLUGINS_DIR" ]]; then
-  for plugin_file in $(ls -1 ${ZSH_PLUGINS_DIR}/*.zsh); do
+  for plugin_file in $(find ${ZSH_PLUGINS_DIR} -type f -iname '*.zsh'); do
     . "${plugin_file}"
   done
 fi
