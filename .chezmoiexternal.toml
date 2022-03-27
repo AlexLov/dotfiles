@@ -1,34 +1,34 @@
 ## Fonts
 [".local/share/fonts/AppleColorEmoji.ttf"]
-    type = "file"
-    url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/latest/AppleColorEmoji.ttf"
+		type = "file"
+		url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/latest/AppleColorEmoji.ttf"
 [".local/share/fonts/Meslo LG S DZ Bold Italic Nerd Font Complete.ttf"]
-    type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Bold-Italic/complete/Meslo%20LG%20S%20DZ%20Bold%20Italic%20Nerd%20Font%20Complete.ttf"
+		type = "file"
+		url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Bold-Italic/complete/Meslo%20LG%20S%20DZ%20Bold%20Italic%20Nerd%20Font%20Complete.ttf"
 [".local/share/fonts/Meslo LG S DZ Bold Italic Nerd Font Complete Mono.ttf"]
-    type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Bold-Italic/complete/Meslo%20LG%20S%20DZ%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
+		type = "file"
+		url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Bold-Italic/complete/Meslo%20LG%20S%20DZ%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
 [".local/share/fonts/Meslo LG S DZ Bold Nerd Font Complete.ttf"]
-    type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Bold/complete/Meslo%20LG%20S%20DZ%20Bold%20Nerd%20Font%20Complete.ttf"
+		type = "file"
+		url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Bold/complete/Meslo%20LG%20S%20DZ%20Bold%20Nerd%20Font%20Complete.ttf"
 [".local/share/fonts/Meslo LG S DZ Bold Nerd Font Complete Mono.ttf"]
-    type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Bold/complete/Meslo%20LG%20S%20DZ%20Bold%20Nerd%20Font%20Complete%20Mono.ttf"
+		type = "file"
+		url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Bold/complete/Meslo%20LG%20S%20DZ%20Bold%20Nerd%20Font%20Complete%20Mono.ttf"
 [".local/share/fonts/Meslo LG S DZ Italic Nerd Font Complete.ttf"]
-    type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Italic/complete/Meslo%20LG%20S%20DZ%20Italic%20Nerd%20Font%20Complete.ttf"
+		type = "file"
+		url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Italic/complete/Meslo%20LG%20S%20DZ%20Italic%20Nerd%20Font%20Complete.ttf"
 [".local/share/fonts/Meslo LG S DZ Italic Nerd Font Complete Mono.ttf"]
-    type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Italic/complete/Meslo%20LG%20S%20DZ%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
+		type = "file"
+		url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Italic/complete/Meslo%20LG%20S%20DZ%20Italic%20Nerd%20Font%20Complete%20Mono.ttf"
 [".local/share/fonts/Meslo LG S DZ Regular Nerd Font Complete.ttf"]
-    type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete.ttf"
+		type = "file"
+		url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete.ttf"
 [".local/share/fonts/Meslo LG S DZ Regular Nerd Font Complete Mono.ttf"]
-    type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete%20Mono.ttf"
+		type = "file"
+		url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete%20Mono.ttf"
 
 ## ZSH plugins
-[".config/zsh/plugins/zsh-vi-mode.zsh"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/jeffreytse/zsh-vi-mode/master/zsh-vi-mode.zsh"
-		refreshPeriod = "672h"
+#[".config/zsh/plugins/zsh-vi-mode.zsh"]
+#	type = "file"
+#	url = "https://raw.githubusercontent.com/jeffreytse/zsh-vi-mode/master/zsh-vi-mode.zsh"
+#	refreshPeriod = "672h"
