@@ -8,3 +8,6 @@
 
 [includeIf "gitdir:mirantis/"]
 	path = mirantis.gitconfig
+
+[includeIf "gitdir:360dialog/"]
+	path = 360dialog.gitconfig
