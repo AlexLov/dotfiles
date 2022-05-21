@@ -33,12 +33,6 @@
 #	url = "https://raw.githubusercontent.com/jeffreytse/zsh-vi-mode/master/zsh-vi-mode.zsh"
 #	refreshPeriod = "672h"
 
-## gcloud https://cloud.google.com/sdk/docs/install
-[".local/google-cloud-sdk"]
-	type = "archive"
-	url = "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-385.0.0-linux-x86_64.tar.gz"
-	stripComponents = 1
-
 ## https://github.com/terraform-linters/tflint
 [".local/bin"]
 	type = "archive"
