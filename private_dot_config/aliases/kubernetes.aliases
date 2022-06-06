@@ -8,3 +8,17 @@ if has kubectl; then
 fi
 has kubectx && alias kx=kubectx
 has kubens && alias kn=kubens
+if has helm; then
+		alias h="helm"
+		alias hl="helm list"
+		alias hi="helm install"
+		alias hh="helm help"
+		alias hr="helm repo"
+		alias hrl="helm repo list"
+		alias hs="helm search"
+		alias ht="helm template"
+		alias hu="helm upgrade"
+		alias hx="helm rollback"
+		alias hv="helm version"
+fi
+
