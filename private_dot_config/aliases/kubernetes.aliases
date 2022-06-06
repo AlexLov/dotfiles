@@ -6,6 +6,7 @@ if has kubectl; then
 		alias kd="kubectl describe"
 		alias ka="kubectl apply"
 fi
+has k9s && alias kk=k9s
 has kubectx && alias kx=kubectx
 has kubens && alias kn=kubens
 if has helm; then
