@@ -1,0 +1,10 @@
+if has kubectl; then 
+		alias k="kubectl"
+		alias kg="kubectl get"
+		alias kga="kubectl get --all"
+		alias ke="kubectl exec"
+		alias kd="kubectl describe"
+		alias ka="kubectl apply"
+fi
+has kubectx && alias kx=kubectx
+has kubens && alias kn=kubens
