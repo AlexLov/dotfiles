@@ -43,6 +43,8 @@ SAVEHIST=${HISTSIZE} # for zsh
 HISTFILE="${XDG_CACHE_HOME}/$(get_shell_name)/history"
 mkdir -p "$(dirname $HISTFILE)"
 
+# Editor
+has nvim && export EDITOR='nvim'
 # Man pager
 has nvim && export MANPAGER='nvim +Man!'
 
