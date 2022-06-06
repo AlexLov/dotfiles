@@ -15,7 +15,11 @@ alias ll="ls -la"
 has rg && alias grep="rg"
 
 # File browser
-has lf && alias f="lf"
+if has lf; then
+	alias f="lf"
+elif has ranger; then
+	alias f="ranger"
+fi
 
 ## misc tools
 has procs && alias s="procs"
