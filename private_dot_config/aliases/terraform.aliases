@@ -1,0 +1,9 @@
+if has terraform; then 
+		alias t="terraform"
+		alias ti="terraform init"
+		alias tp="terraform plan"
+		alias ta="terraform apply"
+		alias tv="terraform validate"
+		alias tf="terraform fmt"
+		alias ts="terraform show"
+fi
