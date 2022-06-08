@@ -8,7 +8,13 @@ has bat && alias jcat="bat --language=json"
 has bat && alias ycat="bat --language=yaml"
 
 ## ls
-has lsd && alias ls="lsd"
+if has lsd ; then
+	alias ls="lsd"
+elif has exa; then
+	alias ls="exa"
+else
+	alias ls='ls $LS_OPTIONS'
+fi
 alias l="ls -l"
 alias ll="ls -la"
 
@@ -20,6 +26,8 @@ if has lf; then
 	alias f="lf"
 elif has ranger; then
 	alias f="ranger"
+else
+	alias f=l
 fi
 
 ## misc tools
