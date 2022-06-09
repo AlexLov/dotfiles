@@ -8,6 +8,7 @@ alias gdc="git diff --cached"
 alias gs="git status"
 alias gpu="git pull --update"
 alias gp="git push"
+alias gsh="git show"
 
 ## Checkout
 alias gc='git checkout'
