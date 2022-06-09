@@ -30,6 +30,11 @@ alias grb="git rebase"
 alias grbi="git rebase -i"
 alias grbc="git rebase --continue"
 
+# Stash
+alias gst="git stash"
+alias gstl="git stash list"
+alias gstp="git stash pop"
+
 ## Log
 alias gl='git log'
 alias gv='git log --pretty=format:'%s' | cut -d " " -f 1 | sort | uniq -c | sort -nr'
