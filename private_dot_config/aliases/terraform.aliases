@@ -1,6 +1,7 @@
 if has terraform; then 
 		alias t="terraform"
 		alias ti="terraform init"
+		alias tiu="terraform init -upgrade"
 		alias tp="terraform plan"
 		alias ta="terraform apply"
 		alias tv="terraform validate"
