@@ -54,6 +54,9 @@ has starship && eval "$(starship init $(get_shell_name))"
 # Init zoxide - modern cd
 has zoxide && eval "$(zoxide init $(get_shell_name))"
 
+# Enable direnv
+has direnv && eval "$(direnv hook $(get_shell_name))"
+
 # Init keychain
 if has keychain; then
   keychain ${HOME}/.ssh/id_ed25519 ${HOME}/.ssh/id_rsa_mcp-scale-jenkins ${HOME}/.ssh/id_rsa_alovtsov-generated 2>/dev/null
@@ -66,6 +69,7 @@ fi
 #  export  $(gnome-keyring-daemon --start)
 #fi
 
+# Load zsh configs
 if [ $(get_shell_name) = "zsh" ]; then
   ZDOTDIR="${HOME}/.config/zsh"
 fi
