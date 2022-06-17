@@ -13,6 +13,7 @@ alias gsh="git show"
 
 ## Checkout
 alias gc='git checkout'
+alias gcm='git checkout master'
 alias gcb='git checkout -b'
 
 ## Commit
