@@ -16,6 +16,7 @@ set $up e
 set $right o
 # Terminal emulator
 set $term foot
+set $term_tmux $term tmux new -s local -A
 # Browser
 set $browser firefox
 
@@ -58,7 +59,8 @@ default_border pixel 2
 # Basics:
 #
 		# Start a terminal
-		bindsym $mod+w exec $term
+		bindsym $mod+w exec $term_tmux
+		bindsym $mod+Shift+w exec $term
 		# Start a browser
 		bindsym $mod+b exec $browser
 
