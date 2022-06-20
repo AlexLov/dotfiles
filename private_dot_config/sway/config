@@ -202,6 +202,14 @@ bindsym $mod+Shift+space floating toggle
 # Swap focus between the tiling area and the floating area
 bindsym $mod+space focus mode_toggle
 
+# Screenshots require grim&slurp
+bindsym $mod+p exec swayshot region
+bindsym $mod+Shift+p exec swayshot region upload
+bindsym $mod+Ctrl+p exec swayshot window
+bindsym $mod+Ctrl+Shift+p exec swayshot window upload
+bindsym $mod+Mod1+p exec swayshot
+bindsym $mod+Mod1+Shift+p exec swayshot upload
+
 # Move focus to the parent container
 #bindsym $mod+u focus parent
 #

@@ -38,6 +38,12 @@
 	type = "archive"
 	url = "https://github.com/terraform-linters/tflint/releases/download/v0.36.2/tflint_linux_amd64.zip"
 
+## https://github.com/terraform-linters/tflint
+[".local/bin/swayshot"]
+	type = "file"
+	url = "https://gitlab.com/radio_rogal/swayshot/-/raw/master/swayshot.sh"
+	executable = true
+
 ## Nyoom
 [".config/nvim"]
 	type = "git-repo"
