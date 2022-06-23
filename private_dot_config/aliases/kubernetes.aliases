@@ -17,6 +17,7 @@ if has kubectl; then
 		alias ka="k apply"
 		alias kaf="ka -f"
 		alias kl="k logs"
+		alias klf="k logs -f"
 		alias kt="k top"
 		alias ktp="kt pod"
 		alias ktn="kt node"
