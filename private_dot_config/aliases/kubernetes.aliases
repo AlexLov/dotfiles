@@ -1,9 +1,9 @@
 if has kubectl; then 
 		alias k="kubectl"
-		alias kg="kubectl get"
-		alias kgy="kubectl get -o yaml"
+		alias kg="k get"
+		alias kgy="k get -o yaml"
 		alias kga="kg -A"
-		alias kd="kubectl describe"
+		alias kd="k describe"
 		for type in d:deploy p:pods n:nodes ns:namespace r:replicasets s:statefulset ds:daemonset v:svc i:ingress ; do
 			PREFIX=$(echo $type | cut -d: -f1)
 			NAME=$(echo $type | cut -d: -f2)
@@ -12,11 +12,12 @@ if has kubectl; then
 			alias kg${PREFIX}y="kgy ${NAME}"
 			alias kd${PREFIX}="kd ${NAME}"
 		done
-		alias ke="kubectl exec"
+		alias ke="k exec"
 		alias kei="ke -it"
-		alias ka="kubectl apply"
+		alias ka="k apply"
 		alias kaf="ka -f"
-		alias kt="kubectl top"
+		alias kl="k logs"
+		alias kt="k top"
 		alias ktp="kt pod"
 		alias ktn="kt node"
 fi
