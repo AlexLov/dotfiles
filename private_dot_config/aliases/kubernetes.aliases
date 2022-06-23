@@ -2,13 +2,17 @@ if has kubectl; then
 		alias k="kubectl"
 		alias kg="k get"
 		alias kgy="k get -o yaml"
+		alias kgw="k get -o wide"
 		alias kga="kg -A"
+		alias kgwa="kgw -A"
 		alias kd="k describe"
 		for type in d:deploy p:pods n:nodes ns:namespace r:replicasets s:statefulset ds:daemonset v:svc i:ingress ; do
 			PREFIX=$(echo $type | cut -d: -f1)
 			NAME=$(echo $type | cut -d: -f2)
 			alias kg${PREFIX}="kg ${NAME}"
 			alias kg${PREFIX}a="kga ${NAME}"
+			alias kg${PREFIX}w="kgw ${NAME}"
+			alias kg${PREFIX}wa="kgwa ${NAME}"
 			alias kg${PREFIX}y="kgy ${NAME}"
 			alias kd${PREFIX}="kd ${NAME}"
 		done
