@@ -27,6 +27,8 @@ if has helm; then
 		alias h="helm"
 		alias hl="helm list"
 		alias hi="helm install"
+		alias hg="helm get"
+		alias hgv="helm get values"
 		alias hh="helm help"
 		alias hr="helm repo"
 		alias hrl="helm repo list"
@@ -35,5 +37,7 @@ if has helm; then
 		alias hu="helm upgrade"
 		alias hx="helm rollback"
 		alias hv="helm version"
+		alias hw="helm show"
+		alias hwv="helm show values"
 fi
 
