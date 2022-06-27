@@ -9,3 +9,8 @@ function get_shell_name() {
     echo -n "bash"
   fi
 }
+
+# Make a directory and cd into it. Usually used to creat temp directory
+function mcd() {
+  mkdir $1; cd $1
+}
