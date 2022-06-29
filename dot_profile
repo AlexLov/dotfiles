@@ -12,6 +12,7 @@ test -d ${HOME}/bin && PATH="${HOME}/bin:${PATH}"
 export PATH
 
 export GOPATH=$HOME/.local/share/go
+[ -d $GOPATH ] || mkdir -p $GOPATH
 
 export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
