@@ -9,10 +9,12 @@ fi
 # Exports
 test -d ${HOME}/.local/bin && PATH="${HOME}/.local/bin:${PATH}"
 test -d ${HOME}/bin && PATH="${HOME}/bin:${PATH}"
-export PATH
 
 export GOPATH=$HOME/.local/share/go
 [ -d $GOPATH ] || mkdir -p $GOPATH
+test -d ${GOPATH}/bin && PATH="${GOPATH}/bin:${PATH}"
+
+export PATH
 
 export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
