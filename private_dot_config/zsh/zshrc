@@ -17,3 +17,6 @@ fi
 
 ## TODO
 zle_highlight=('paste:none')
+
+# make completion work with kubecolor like it is kubectl
+compdef kubecolor=kubectl

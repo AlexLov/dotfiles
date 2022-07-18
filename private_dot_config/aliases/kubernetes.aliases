@@ -1,49 +1,55 @@
-if has kubectl; then 
-		alias k="kubectl"
-		alias kg="k get"
-		alias kgy="k get -o yaml"
-		alias kgw="k get -o wide"
-		alias kga="kg -A"
-		alias kgwa="kgw -A"
-		alias kd="k describe"
-		for type in d:deploy p:pods n:nodes ns:namespace r:replicasets s:statefulset ds:daemonset v:svc i:ingress ; do
-			PREFIX=$(echo $type | cut -d: -f1)
-			NAME=$(echo $type | cut -d: -f2)
-			alias kg${PREFIX}="kg ${NAME}"
-			alias kg${PREFIX}a="kga ${NAME}"
-			alias kg${PREFIX}w="kgw ${NAME}"
-			alias kg${PREFIX}wa="kgwa ${NAME}"
-			alias kg${PREFIX}y="kgy ${NAME}"
-			alias kd${PREFIX}="kd ${NAME}"
-		done
-		alias ke="k exec"
-		alias kei="ke -it"
-		alias ka="k apply"
-		alias kaf="ka -f"
-		alias kl="k logs"
-		alias klf="k logs -f"
-		alias kt="k top"
-		alias ktp="kt pod"
-		alias ktn="kt node"
+if has kubecolor; then 
+	alias kubectl="kubecolor"
 fi
+
+if has kubectl; then 
+	alias k="kubectl"
+	alias kg="k get"
+	alias kgy="k get -o yaml"
+	alias kgw="k get -o wide"
+	alias kga="kg -A"
+	alias kgwa="kgw -A"
+	alias kd="k describe"
+	for type in d:deploy p:pods n:nodes ns:namespace r:replicasets s:statefulset ds:daemonset v:svc i:ingress ; do
+		PREFIX=$(echo $type | cut -d: -f1)
+		NAME=$(echo $type | cut -d: -f2)
+		alias kg${PREFIX}="kg ${NAME}"
+		alias kg${PREFIX}a="kga ${NAME}"
+		alias kg${PREFIX}w="kgw ${NAME}"
+		alias kg${PREFIX}wa="kgwa ${NAME}"
+		alias kg${PREFIX}y="kgy ${NAME}"
+		alias kd${PREFIX}="kd ${NAME}"
+	done
+	alias ke="k exec"
+	alias kei="ke -it"
+	alias ka="k apply"
+	alias kaf="ka -f"
+	alias kl="k logs"
+	alias klf="k logs -f"
+	alias kt="k top"
+	alias ktp="kt pod"
+	alias ktn="kt node"
+fi
+
 has k9s && alias kk=k9s
 has kubectx && alias kx=kubectx
 has kubens && alias kn=kubens
+
 if has helm; then
-		alias h="helm"
-		alias hl="helm list"
-		alias hi="helm install"
-		alias hg="helm get"
-		alias hgv="helm get values"
-		alias hh="helm help"
-		alias hr="helm repo"
-		alias hrl="helm repo list"
-		alias hs="helm search"
-		alias ht="helm template"
-		alias hu="helm upgrade"
-		alias hx="helm rollback"
-		alias hv="helm version"
-		alias hw="helm show"
-		alias hwv="helm show values"
+	alias h="helm"
+	alias hl="helm list"
+	alias hi="helm install"
+	alias hg="helm get"
+	alias hgv="helm get values"
+	alias hh="helm help"
+	alias hr="helm repo"
+	alias hrl="helm repo list"
+	alias hs="helm search"
+	alias ht="helm template"
+	alias hu="helm upgrade"
+	alias hx="helm rollback"
+	alias hv="helm version"
+	alias hw="helm show"
+	alias hwv="helm show values"
 fi
 

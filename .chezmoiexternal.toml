@@ -44,6 +44,17 @@
 	url = "https://gitlab.com/radio_rogal/swayshot/-/raw/master/swayshot.sh"
 	executable = true
 
+## https://github.com/hidetatz/kubecolor
+[".local/bin/kubecolor"]
+	type = "file"
+	url = "https://github.com/hidetatz/kubecolor/releases/download/v0.0.20/kubecolor_0.0.20_Linux_x86_64.tar.gz"
+	#exact = true
+	executable = true
+	refreshPeriod = "168h"
+	filter.command = "tar"
+  filter.args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "kubecolor"]
+
+
 ## Nyoom
 [".config/nvim"]
 	type = "git-repo"
