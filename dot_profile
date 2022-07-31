@@ -83,7 +83,6 @@ has lf && [ -f "${XDG_CONFIG_HOME}/lf/icons" ] && source "${XDG_CONFIG_HOME}/lf/
 # Use Everblush color theme for fzf if it installed
 # from https://github.com/Everblush/fzf
 has fzf && export FZF_DEFAULT_OPTS='
-  --color bg+:#ef7d7d,fg+:#2c2f30
   --color hl:#dadada,hl+:#26292a,gutter:#1e2527
   --color pointer:#373d49,info:#606672
   --border
