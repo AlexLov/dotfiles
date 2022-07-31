@@ -4,6 +4,6 @@ disabled = true
 disabled = true
 [kubernetes]
 format = '[⛵ ($context)](dimmed red) '
-disabled = false
+disabled = true
 [kubernetes.context_aliases]
 "gke_(?P<var_project>[\\w-]+)_.*_(?P<var_cluster>[\\w-]+)" = "$var_cluster@$var_project"
