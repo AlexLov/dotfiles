@@ -59,3 +59,8 @@
 [".config/nvim"]
 	type = "git-repo"
 	url = "git@github.com:AlexLov/nyoom.nvim.git"
+
+## Tmux Plugin manager
+[".config/tmux/plugins/tpm"]
+	type = "git-repo"
+	url = "https://github.com/tmux-plugins/tpm"
