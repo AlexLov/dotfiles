@@ -38,6 +38,7 @@ has kubens && alias kn=kubens
 if has helm; then
 	alias h="helm"
 	alias hl="helm list"
+	alias hla="helm list -A"
 	alias hi="helm install"
 	alias hg="helm get"
 	alias hgv="helm get values"
