@@ -56,11 +56,21 @@
 
 
 ## Nyoom
-[".config/nvim"]
-	type = "git-repo"
-	url = "git@github.com:AlexLov/nyoom.nvim.git"
+#[".config/nvim"]
+#	type = "git-repo"
+#	url = "git@github.com:AlexLov/nyoom.nvim.git"
 
 ## Tmux Plugin manager
 [".config/tmux/plugins/tpm"]
 	type = "git-repo"
 	url = "https://github.com/tmux-plugins/tpm"
+
+## Neovim tangerin plugin
+[".local/share/nvim/site/pack/packer/start/tangerin.nvim"]
+	type = "git-repo"
+	url = "https://github.com/udayvir-singh/tangerine.nvim"
+
+## Neovim Packer plugin
+[".local/share/nvim/site/pack/packer/start/packed.nvim"]
+	type = "git-repo"
+	url = "https://github.com/wbthomason/packer.nvim"
