@@ -51,6 +51,9 @@ has nvim && export EDITOR='nvim'
 # Man pager
 has nvim && export MANPAGER='nvim +Man!'
 
+# Use bat as default pager
+has bat && export PAGER=$(which bat)
+
 # Init starship - modern shell prompt
 has starship && eval "$(starship init $(get_shell_name))"
 
