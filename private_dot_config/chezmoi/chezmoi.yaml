@@ -1,1 +1,3 @@
-pager: cat
+pager: delta
+diff: 
+  command: delta
