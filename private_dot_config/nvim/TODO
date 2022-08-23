@@ -1,11 +1,11 @@
 ~ treesitter
-
-+ https://github.com/lewis6991/impatient.nvim
-
-* autoapply changes from chezmoi
+~ https://github.com/lewis6991/impatient.nvim
+~ autoapply changes from chezmoi
   - Autocompile fennel code
   - Autoupdate plugins
   - Autoupdate treesitter modules
+
+* Autoapply chezmoi changes on file save
 * disable background
 * parinfer
 * comment
@@ -15,6 +15,7 @@
   - bash
   - terraform
   - yaml
+  - json
   - python
   - lua
 * cmp
