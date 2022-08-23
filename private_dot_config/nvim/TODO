@@ -1,0 +1,27 @@
+~ treesitter
+
++ https://github.com/lewis6991/impatient.nvim
+
+* autoapply changes from chezmoi
+  - Autocompile fennel code
+  - Autoupdate plugins
+  - Autoupdate treesitter modules
+* disable background
+* parinfer
+* comment
+* lsp
+* languages
+  - fennel
+  - bash
+  - terraform
+  - yaml
+  - python
+  - lua
+* cmp
+* lualine
+* bufferline
+* nvim tree
+* surround
+* gitsign
+* neorg
+* zettelkasten

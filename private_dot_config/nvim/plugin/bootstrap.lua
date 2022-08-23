@@ -1,7 +1,3 @@
--- use opt-in filetype.lua instead of vimscript default
-vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
-
 -- A function that applies passes the output of string.format to the print
 -- function
 ---@param string string #template string
@@ -27,15 +23,20 @@ end
 
 
 -- Bootstrap tangerine & plugins
-bootstrap("wbthomason/packer.nvim")
+bootstrap("lewis6991/impatient.nvim")
 bootstrap("udayvir-singh/tangerine.nvim")
+bootstrap("udayvir-singh/hibiscus.nvim")
 
--- setup tangerin
+
+-- it should be loaded before tangeringe as described in
+-- https://github.com/udayvir-singh/tangerine.nvim#faq
+require "impatient"
+
+-- setup tangerine
 require "tangerine".setup {
 	compiler = {
-		hooks = { "oninit", "onload", "onsave" }
+		verbose = false,
+		--hooks = { "oninit", "onload", "onsave" }
+		hooks = { "onsave" }
 	}
 }
-
--- require core config
---require("core")

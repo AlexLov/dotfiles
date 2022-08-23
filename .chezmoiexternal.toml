@@ -65,10 +65,20 @@
 	type = "git-repo"
 	url = "https://github.com/tmux-plugins/tpm"
 
+## Neovim impatient plugin
+[".local/share/nvim/site/pack/packer/start/impatient.nvim"]
+	type = "git-repo"
+	url = "https://github.com/lewis6991/impatient.nvim"
+
 ## Neovim tangerin plugin
 [".local/share/nvim/site/pack/packer/start/tangerin.nvim"]
 	type = "git-repo"
 	url = "https://github.com/udayvir-singh/tangerine.nvim"
+
+## Neovim hibiscus plugin (accompany tangerine with useful macroses)
+[".local/share/nvim/site/pack/packer/start/hibiscus.nvim"]
+	type = "git-repo"
+	url = "https://github.com/udayvir-singh/hibiscus.nvim"
 
 ## Neovim Packer plugin
 [".local/share/nvim/site/pack/packer/start/packed.nvim"]
