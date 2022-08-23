@@ -4,9 +4,9 @@
   - Autocompile fennel code
   - Autoupdate plugins
   - Autoupdate treesitter modules
+~ disable background
 
 * Autoapply chezmoi changes on file save
-* disable background
 * parinfer
 * comment
 * lsp

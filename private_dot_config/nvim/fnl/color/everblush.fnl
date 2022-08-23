@@ -3,10 +3,11 @@
 		(let [colors ((. (require "everblush.core") "get_colors") {})]
 			(everblush.setup {
 				:nvim_tree	{ :contrast true }
+				:transparent_background true
 				:override {
 					:Whitespace { :fg colors.color8 }
 					:NonText { :fg colors.color8 }
-					:LineNr { :fg colors.color4 :bg colors.background }
+					:LineNr { :fg colors.color4 }
 					:CursorLineNr { :fg colors.color10 :bg colors.cursorline }
 					; TODO comments should be a little bit brighter
 				}}))))

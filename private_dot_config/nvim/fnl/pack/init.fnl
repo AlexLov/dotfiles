@@ -1,6 +1,7 @@
 (require-macros :hibiscus.packer)
 
-(packer-setup {:git {:clone_timeout 300}})
+(packer-setup {:autoremove true
+							 :git {:clone_timeout 300}})
 
 (packer
 	;; core packages
@@ -17,7 +18,9 @@
 				:cmd :St)
 
 	;; Colorscheme
-	(use! :Everblush/everblush.nvim
+	;(use! :Everblush/everblush.nvim
+	(use! :AlexLov/everblush.nvim
+				:branch "transparent-background"
 				:config #(require :color.everblush))
 
 	;; Tree-sitter
