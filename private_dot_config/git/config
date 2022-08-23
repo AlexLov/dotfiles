@@ -29,6 +29,7 @@
 	syntax-theme = Everblush
 	line-numbers = true
 	hyperlinks = true
+	tabs=2
 
 [delta "interactive"]
 	keep-plus-minus-markers = false
