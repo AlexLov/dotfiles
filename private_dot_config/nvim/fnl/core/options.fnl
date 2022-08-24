@@ -53,7 +53,7 @@
 (set! shiftwidth 0) ; 0 to use value from 'tabstop'
 
 ;; Expand tabs
-(set! expandtab false)
+(set! expandtab true)
 
 ;; Enable concealing
 (set! conceallevel 2)
