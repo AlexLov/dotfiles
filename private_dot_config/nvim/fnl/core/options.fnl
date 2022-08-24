@@ -1,4 +1,4 @@
-(import-macros {: set!} :hibiscus.vim)
+(import-macros {: set! : set+} :hibiscus.vim)
 
 ;;; Global options
 (set! hidden true)
@@ -19,6 +19,9 @@
 
 ;; Faster macros
 (set! lazyredraw true)
+
+;; Formating
+(set+ formatoptions "ro")
 
 ;; Disable swapfiles and enable undofiles
 (set! swapfile false)
