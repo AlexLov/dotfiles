@@ -52,6 +52,9 @@
 (set! tabstop 2)
 (set! shiftwidth 0) ; 0 to use value from 'tabstop'
 
+;; Text width
+(set! textwidth 100)
+
 ;; Expand tabs
 (set! expandtab true)
 
