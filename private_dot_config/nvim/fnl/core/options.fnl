@@ -12,7 +12,7 @@
 (set! completeopt [:menu :menuone :preview :noinsert])
 
 ;; Use clipboard outside Neovim
-;(set! clipboard :unnamedplus)
+(set! clipboard :unnamedplus)
 
 ;; Enable mouse input
 (set! mouse :a)
