@@ -9,5 +9,6 @@
 					:NonText { :fg colors.color8 }
 					:LineNr { :fg colors.color4 }
 					:CursorLineNr { :fg colors.color10 :bg colors.cursorline }
-					; TODO comments should be a little bit brighter
+					:Comment { :fg "gray" }
+					:TSComment { :fg "gray" }
 				}}))))
