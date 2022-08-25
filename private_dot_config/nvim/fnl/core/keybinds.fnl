@@ -26,6 +26,7 @@
 
 ;; Convinient shortcuts
 (map! [n] :<leader>W ":w<CR>")
+(map! [n] :<leader>WW ":wa<CR>")
 (map! [n] :ZZ ":wqa<CR>")  ;; write all buffers and exit
 (map! [n] :<leader>z ":wqa<CR>")  ;; write all buffers and exit
 (map! [n] :QQ ":qa!<CR>")  ;; quit all buffers without saving
