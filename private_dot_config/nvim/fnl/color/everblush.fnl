@@ -11,4 +11,6 @@
 					:CursorLineNr { :fg colors.color10 :bg colors.cursorline }
 					:Comment { :fg "gray" }
 					:TSComment { :fg "gray" }
+					:Search { :fg colors.color8 :bg colors.color10 }
+					:IncSearch { :fg colors.color8 :bg colors.color10 }
 				}}))))
