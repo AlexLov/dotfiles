@@ -85,12 +85,22 @@ has lf && [ -f "${XDG_CONFIG_HOME}/lf/icons" ] && source "${XDG_CONFIG_HOME}/lf/
 
 # Use Everblush color theme for fzf if it installed
 # from https://github.com/Everblush/fzf
-has fzf && export FZF_DEFAULT_OPTS='
-  --color hl:#dadada,hl+:#26292a,gutter:#1e2527
-  --color pointer:#373d49,info:#606672
-  --border
-  --color border:#1e2527
-  --height 13'
+#has fzf && export FZF_DEFAULT_OPTS='
+#  --color hl:#dadada,hl+:#26292a,gutter:#1e2527
+#  --color pointer:#373d49,info:#606672
+#  --border
+#  --color border:#1e2527
+#  --height 13'
+# Use Catppuccin color theme for fzf if it installed
+# from https://github.com/catppuccin/fzf/blob/main/mocha.md
+has fzf && export FZF_DEFAULT_OPTS=" \
+  --tabstop=2 \
+  --height 13 \
+  --border \
+  --color border:#1e1e2e
+  --color=bg+:#313244,bg:#111111,spinner:#f5e0dc,hl:#f38ba8 \
+  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 # File and Dir colors for ls and other outputs
 export LS_OPTIONS='--color=auto'
