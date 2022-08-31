@@ -26,7 +26,8 @@
 [delta]
 	navigate = true
 	features = calochortus-lyallii
-	syntax-theme = Everblush
+	#syntax-theme = Everblush
+	syntax-theme = Catppuccin-mocha
 	line-numbers = true
 	hyperlinks = true
 	tabs=2
@@ -64,3 +65,5 @@
 	whitespace-error-style = "#280050" reverse
 	zero-style = syntax
 	syntax-theme = Nord
+
+# vim: ts=2 noet

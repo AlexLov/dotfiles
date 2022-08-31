@@ -3,4 +3,8 @@
 # syntaxes/Fennel.sublime-syntax hash: {{ include "private_dot_config/bat/syntaxes/Fennel.sublime-syntax" | sha256sum }}
 # syntaxes/Bats.sublime-syntax hash: {{ include "private_dot_config/bat/syntaxes/Bats.sublime-syntax" | sha256sum }}
 # themes/Everblush.tmTheme hash: {{ include "private_dot_config/bat/themes/Everblush.tmTheme" | sha256sum }}
+# From .chezmoiexternal
+# themes/Catppuccin-mocha.tmTheme hash: {{ joinPath .chezmoi.homeDir "/.config/bat/themes/Catppuccin-mocha.tmTheme" | include | sha256sum }}
 bat cache --build
+
+# vim: ts=2 noet

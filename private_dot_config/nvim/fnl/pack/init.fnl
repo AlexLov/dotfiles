@@ -1,6 +1,7 @@
 (require-macros :hibiscus.packer)
 
 (packer-setup {:autoremove true
+							 :auto_reload_compiled true
 							 :git {:clone_timeout 300}})
 
 (packer
@@ -19,9 +20,14 @@
 
 	;; Colorscheme
 	;(use! :Everblush/everblush.nvim
-	(use! :AlexLov/everblush.nvim
-				:branch "transparent-background"
-				:config #(require :color.everblush))
+	;(use! :AlexLov/everblush.nvim
+	;			:branch "transparent-background"
+	;			:config #(require :color.everblush))
+
+	(use! :catppuccin/nvim
+				:as "catppuccin"
+				:run ":CatppuccinCompile"
+				:config #(require :color.catppuccin))
 
 	;; Tree-sitter
 	(use! :nvim-treesitter/nvim-treesitter

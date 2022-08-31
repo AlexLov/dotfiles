@@ -1,5 +1,5 @@
 (let [(ok? everblush) (pcall require "everblush")]
-	(if ok?
+	(when ok?
 		(let [colors ((. (require "everblush.core") "get_colors") {})]
 			(everblush.setup {
 				:nvim_tree	{ :contrast true }
@@ -14,3 +14,4 @@
 					:Search { :fg colors.color8 :bg colors.color10 }
 					:IncSearch { :fg colors.color8 :bg colors.color10 }
 				}}))))
+;; vim: ts=2 noet
