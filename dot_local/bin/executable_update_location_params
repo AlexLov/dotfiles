@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Script to run form incron or from other events
+
+# Set forecast-location for tmux status line
+tmux set-option -g @forecast-location "$(cat ${XDG_CACHE_HOME:-~/.cache}/location/city 2>/dev/null || jq -r .city ${XDG_CACHE_HOME:-~/.cache}/location/data.json 2>/dev/null)"
+
+# Set timezone
+sudo eselect timezone set "$(cat ${XDG_CACHE_HOME:-~/.cache}/location/timezone 2>/dev/null || jq -r .timezone ${XDG_CACHE_HOME:-~/.cache}/location/data.json 2>/dev/null || echo UTC)"
