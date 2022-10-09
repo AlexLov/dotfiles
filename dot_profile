@@ -1,9 +1,10 @@
-# Test for an interactive shell.  There is no need to set anything
+# vim: noet
+# Test for an interactive shell.	There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
 if [[ $- != *i* ]] ; then
-  # Shell is non-interactive.  Be done now!
-  return
+	# Shell is non-interactive.	Be done now!
+	return
 fi
 
 # Exports
@@ -27,17 +28,17 @@ mkdir -p ${XDG_CACHE_HOME}
 # Functions
 FUNCTIONS_DIR="${XDG_CONFIG_HOME}/functions"
 if [ -d "${FUNCTIONS_DIR}" ]; then
-  for function_file in $(ls -1 ${FUNCTIONS_DIR}/*.sh); do
-    . "${function_file}"
-  done
+	for function_file in $(ls -1 ${FUNCTIONS_DIR}/*.sh); do
+		. "${function_file}"
+	done
 fi
 
 # Aliases
 ALIASES_DIR="${XDG_CONFIG_HOME}/aliases"
 if [ -d "${ALIASES_DIR}" ]; then
-  for alias_file in $(ls -1 ${ALIASES_DIR}/*.aliases); do
-    . "${alias_file}"
-  done
+	for alias_file in $(ls -1 ${ALIASES_DIR}/*.aliases); do
+		. "${alias_file}"
+	done
 fi
 
 ## History
@@ -63,21 +64,20 @@ has zoxide && eval "$(zoxide init $(get_shell_name))"
 # Enable direnv
 has direnv && eval "$(direnv hook $(get_shell_name))"
 
+# Init gnome-keyring by default if present
+if has gnome-keyring && pkill -0 -u $(id -u) -f gnome-keyring-daemon; then
+	export eval $(gnome-keyring-daemon --start 2>/dev/null)
 # Init keychain
-if has keychain; then
-  keychain ${HOME}/.ssh/id_ed25519 ${HOME}/.ssh/id_rsa_mcp-scale-jenkins ${HOME}/.ssh/id_rsa_alovtsov-generated 2>/dev/null
-  . ${HOME}/.keychain/$(hostname -s)-sh
-  #. ${HOME}/.keychain/$(hostname -s)-sh-gpg
+elif has keychain; then
+	keychain --inherit any-once --ignore-missing --noask
+	#	${HOME}/.ssh/id_ed25519 ${HOME}/.ssh/id_rsa_mcp-scale-jenkins ${HOME}/.ssh/id_rsa_alovtsov-generated 2>/dev/null
+	. ${HOME}/.keychain/$(hostname -s)-sh
+	#. ${HOME}/.keychain/$(hostname -s)-sh-gpg
 fi
-
-# Check that process exists by sending 0 signal
-#if pkill -0 -u $(id -u) -f gnome-keyring-daemon; then
-#  export  $(gnome-keyring-daemon --start)
-#fi
 
 # Load zsh configs
 if [ $(get_shell_name) = "zsh" ]; then
-  ZDOTDIR="${HOME}/.config/zsh"
+	ZDOTDIR="${HOME}/.config/zsh"
 fi
 
 # Add icons to lf (file manager)
@@ -86,21 +86,21 @@ has lf && [ -f "${XDG_CONFIG_HOME}/lf/icons" ] && source "${XDG_CONFIG_HOME}/lf/
 # Use Everblush color theme for fzf if it installed
 # from https://github.com/Everblush/fzf
 #has fzf && export FZF_DEFAULT_OPTS='
-#  --color hl:#dadada,hl+:#26292a,gutter:#1e2527
-#  --color pointer:#373d49,info:#606672
-#  --border
-#  --color border:#1e2527
-#  --height 13'
+#	--color hl:#dadada,hl+:#26292a,gutter:#1e2527
+#	--color pointer:#373d49,info:#606672
+#	--border
+#	--color border:#1e2527
+#	--height 13'
 # Use Catppuccin color theme for fzf if it installed
 # from https://github.com/catppuccin/fzf/blob/main/mocha.md
 has fzf && export FZF_DEFAULT_OPTS=" \
-  --tabstop=2 \
-  --height 13 \
-  --border \
-  --color border:#1e1e2e
-  --color=bg+:#313244,bg:#111111,spinner:#f5e0dc,hl:#f38ba8 \
-  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+	--tabstop=2 \
+	--height 13 \
+	--border \
+	--color border:#1e1e2e
+	--color=bg+:#313244,bg:#111111,spinner:#f5e0dc,hl:#f38ba8 \
+	--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+	--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 # File and Dir colors for ls and other outputs
 export LS_OPTIONS='--color=auto'
