@@ -112,6 +112,6 @@ echo ""
 cd ${QMK_FIRMWARE_PATH} && util/docker_build.sh "${KEYBOARD_NAME}:${KEYMAP_NAME}"
 
 # 7. Flash the firmware
-wally-cli-bin "${QMK_FIRMWARE_PATH}/.build/moonlander_alexlov.bin"
+wally-cli "${QMK_FIRMWARE_PATH}/.build/moonlander_alexlov.bin"
 
 set +x
