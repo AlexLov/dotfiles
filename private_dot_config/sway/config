@@ -30,6 +30,10 @@ output * bg $wallpaper fill
 # Enable HDMI by default
 output DP-2 enable
 
+# Turn off the laptop's screen when in closed and enable it back when open
+bindswitch --locked --no-warn --reload lid:off output eDP-1 enable
+bindswitch --locked --no-warn --reload lid:on output eDP-1 disable
+
 # Lock screen
 # Switch to first (usually en) keyboard layout before lock
 set $lock "swaymsg input 'type:keyboard' xkb_switch_layout 0; swaylock -f -F -e -k -l -s fill -i $wallpaper"
