@@ -16,7 +16,8 @@ set $up e
 set $right o
 # Terminal emulator
 set $term foot
-set $term_tmux $term tmux new -s local -A /bin/zsh -i
+set $term_tmux $term ~/.local/bin/attach_tmux
+
 # Browser
 set $browser firefox
 

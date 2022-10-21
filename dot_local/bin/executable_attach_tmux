@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# vim: noet
+
+DEFAULT_SESSION_NAME=${1:-"local"}
+
+LAST_SESSION_NAME=$(tmux list-sessions -F '#{session_name} #{session_last_attached}' | sort -n -k2 -r | head -1 | cut -d' ' -f1)
+
+tmux new -s "${LAST_SESSION_NAME:-${DEFAULT_SESSION_NAME}}" -A /bin/zsh -i
