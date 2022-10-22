@@ -54,6 +54,16 @@
 	filter.command = "tar"
   filter.args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "kubecolor"]
 
+## https://github.com/hidetatz/kubecolor
+[".local/bin/jira"]
+	type = "file"
+	url = "https://github.com/ankitpokhrel/jira-cli/releases/download/v1.1.0/jira_1.1.0_linux_x86_64.tar.gz"
+	#exact = true
+	executable = true
+	refreshPeriod = "168h"
+	filter.command = "tar"
+  filter.args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "jira_1.1.0_linux_x86_64/bin/jira"]
+
 
 ## Nyoom
 #[".config/nvim"]
