@@ -107,4 +107,10 @@
 	url = "https://raw.githubusercontent.com/catppuccin/foot/main/catppuccin-mocha.conf"
   refreshPeriod = "168h"
 
+## Catppuccin colorsheme for btop
+[".config/btop/themes/catppuccin-mocha.theme"]
+	type = "file"
+	url = "https://raw.githubusercontent.com/catppuccin/btop/main/catppuccin_mocha.theme"
+  refreshPeriod = "168h"
+
 # vim: ts=2 noet
