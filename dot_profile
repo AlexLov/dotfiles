@@ -64,6 +64,17 @@ has zoxide && eval "$(zoxide init $(get_shell_name))"
 # Enable direnv
 has direnv && eval "$(direnv hook $(get_shell_name))"
 
+# Enable mcfly (better ctrl-r)
+if has mcfly ; then
+  # Details are in https://github.com/cantino/mcfly
+	eval "$(mcfly init $(get_shell_name))"
+	export MCFLY_KEY_SCHEME=vim
+	export MCFLY_INTERFACE_VIEW=BOTTOM # TOP
+	export MCFLY_DISABLE_MENU=TRUE
+	#MCFLY_RESULTS_SORT=LAST_RUN # RANK
+	#export MCFLY_RESULTS=10
+fi
+
 # Init gnome-keyring by default if present
 if has gnome-keyring && pkill -0 -u $(id -u) -f gnome-keyring-daemon; then
 	export eval $(gnome-keyring-daemon --start 2>/dev/null)
