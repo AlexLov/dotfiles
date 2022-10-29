@@ -1,9 +1,13 @@
-[gcloud]
-disabled = true
-[aws]
-disabled = true
-[kubernetes]
-format = '[⛵ ($context)](dimmed red) '
-disabled = true
-[kubernetes.context_aliases]
-"gke_(?P<var_project>[\\w-]+)_.*_(?P<var_cluster>[\\w-]+)" = "$var_cluster@$var_project"
+format = """
+$sudo\
+$cmd_duration\
+$jobs\
+$battery\
+$time\
+$status\
+$container\
+$shell\
+$character
+"""
+
+continuation_prompt = '[∙](bright-black) '
