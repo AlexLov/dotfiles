@@ -34,7 +34,7 @@ bindkey "^Y" yank						# [Ctrl-y] - paste
 
 # Incremental search in insert mode
 bindkey "^F" history-incremental-search-forward
-bindkey "^R" history-incremental-search-backward
+has mcfly || bindkey "^R" history-incremental-search-backward
 
 # Incremental search in vi command mode
 bindkey -M vicmd '?' vi-history-search-backward

@@ -17,13 +17,15 @@ test -d ${GOPATH}/bin && PATH="${GOPATH}/bin:${PATH}"
 
 export PATH
 
-export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-${HOME}/.local/state}"
 
-mkdir -p ${XDG_DATA_HOME}
 mkdir -p ${XDG_CONFIG_HOME}
 mkdir -p ${XDG_CACHE_HOME}
+mkdir -p ${XDG_DATA_HOME}
+mkdir -p ${XDG_STATE_HOME}
 
 # Functions
 FUNCTIONS_DIR="${XDG_CONFIG_HOME}/functions"
@@ -44,7 +46,7 @@ fi
 ## History
 HISTSIZE=1000000
 SAVEHIST=${HISTSIZE} # for zsh
-HISTFILE="${XDG_CACHE_HOME}/$(get_shell_name)/history"
+HISTFILE="${XDG_STATE_HOME}/$(get_shell_name)/history"
 mkdir -p "$(dirname $HISTFILE)"
 
 # Editor
@@ -66,11 +68,14 @@ has direnv && eval "$(direnv hook $(get_shell_name))"
 
 # Enable mcfly (better ctrl-r)
 if has mcfly ; then
+	#export MCFLY_HISTORY="${XDG_STATE_HOME}/mcfly/history.db"
+	#mkdir -p "$(dirname "${MCFLY_HISTORY}")"
+
+	export MCFLY_KEY_SCHEME=vim
+	export MCFLY_INTERFACE_VIEW=TOP # BOTTOM
+	export MCFLY_DISABLE_MENU=TRUE
   # Details are in https://github.com/cantino/mcfly
 	eval "$(mcfly init $(get_shell_name))"
-	export MCFLY_KEY_SCHEME=vim
-	export MCFLY_INTERFACE_VIEW=BOTTOM # TOP
-	export MCFLY_DISABLE_MENU=TRUE
 	#MCFLY_RESULTS_SORT=LAST_RUN # RANK
 	#export MCFLY_RESULTS=10
 fi
