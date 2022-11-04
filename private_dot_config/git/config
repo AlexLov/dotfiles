@@ -26,8 +26,8 @@
 [delta]
 	navigate = true
 	features = calochortus-lyallii
-	#syntax-theme = Everblush
-	syntax-theme = Catppuccin-mocha
+  # bat's colorsceme is using
+	syntax-theme = base16
 	line-numbers = true
 	hyperlinks = true
 	tabs=2
