@@ -1,7 +1,5 @@
+# vim: ft=ini
 # -*- conf -*-
-
-#include=~/.config/foot/everblush.color.ini
-include=~/.config/foot/catppuccin-mocha.color.ini
 
 # shell=$SHELL (if set, otherwise user's default shell from /etc/passwd)
 # term=foot (or xterm-256color if built with -Dterminfo=disabled)
@@ -12,10 +10,6 @@ include=~/.config/foot/catppuccin-mocha.color.ini
 # title=foot
 # locked-title=no
 
-#font=MesloLGSDZ Nerd Font Mono:size=7:style=Regular
-#font-bold=MesloLGSDZ Nerd Font Mono:size=7:style=Bold
-#font-italic=MesloLGSDZ Nerd Font Mono:size=7:style=Italic
-#font-bold-italic=MesloLGSDZ Nerd Font Mono:size=7:style=Bold Italic
 font=monospace:size=11:style=Regular
 font-bold=monospace:size=11:style=Bold
 font-italic=monospace:size=11:style=Italic
@@ -27,7 +21,7 @@ font-bold-italic=monospace:size=11:style=Bold Italic
 underline-offset=2px
 # box-drawings-uses-font-glyphs=no
 # dpi-aware=yes
- dpi-aware=no
+dpi-aware=no
 
 # initial-window-size-pixels=700x500  # Or,
 # initial-window-size-chars=<COLSxROWS>
@@ -73,13 +67,18 @@ style=beam
 hide-when-typing=yes
 # alternate-scroll-mode=yes
 
+# colorscheme {{ .colorscheme.name }}
 [colors]
 alpha=0.95
-# always override
-background=111111
-## form everblush colorscheme
-regular5=c47fd5  # magenta
-bright5=ce89df   # bright magenta
+background={{ .colorscheme.basic_colors.background }}
+foreground={{ .colorscheme.basic_colors.foreground }}
+{{ range $index, $value := .colorscheme.basic_colors.regular -}} 
+regular{{ $index }}={{ $value }}
+{{ end -}}
+{{ range $index, $value := .colorscheme.basic_colors.bright -}} 
+bright{{ $index }}={{ $value }}
+{{ end -}}
+
 # Default
 # foreground=dcdccc
 # background=111111
