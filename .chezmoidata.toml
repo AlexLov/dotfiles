@@ -1,0 +1,27 @@
+[colorscheme]
+# Taken from https://github.com/projekt0n/github-theme-contrib/blob/main/foot/github_dark
+name = 'github-dark'
+[colorscheme.basic_colors]
+background = '000000'
+foreground = 'd1d5da'
+regular = [
+	'586069',	# black 
+	'ea4a5a',	# red 
+	'34d058',	# green 
+	'ffea7f',	# yellow 
+	'2188ff',	# blue 
+	'b392f0',	# magenta 
+	'39c5cf',	# cyan 
+	'd1d5da',	# grey 
+]
+bright = [
+	'959da5', # black 
+	'f97583', # red 
+	'85e89d', # green 
+	'ffea7f', # yellow 
+	'79b8ff', # blue 
+	'b392f0', # magenta 
+	'56d4dd', # cyan 
+	'fafbfc', # grey 
+]
+#[colorscheme.extra_colors]
