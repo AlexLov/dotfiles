@@ -1,7 +1,0 @@
-pager: delta
-diff: 
-  command: delta
-merge:
-  command: "nvim"
-  args: ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
-

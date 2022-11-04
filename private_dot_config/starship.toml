@@ -11,3 +11,4 @@ $character
 """
 
 continuation_prompt = '[∙](bright-black) '
+add_newline = false
