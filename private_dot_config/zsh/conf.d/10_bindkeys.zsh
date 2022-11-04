@@ -58,6 +58,7 @@ bindkey ' ' magic-space					# [Space] - do history expansion
 bindkey -s "\el" 'ls -l\n'				# [Esc-l] - run command: ls -l
 bindkey -s '\ef' 'fg\n'					# [Esc-j] - run command: fg
 bindkey -s '\ed' 'date\n'				# [Esc-d] - run command: date
+bindkey -s '\ep' 'pwd\n'				# [Esc-p] - run command: pwd
 has f && bindkey -s '\en' 'f\n'							# [Esc-f] - run filemanager if alias 'f' exists
 has git && bindkey -s '\eg' 'git status\n'	# [Esc-g] - run command: git status
 has hg && bindkey -s '\eh' 'hg status\n'	# [Esc-h] - run command: hg status
