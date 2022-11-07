@@ -9,9 +9,9 @@ has bat && alias ycat="bat --language=yaml"
 
 ## ls
 if has lsd ; then
-	alias ls="lsd"
+	alias ls="lsd --group-directories-first"
 elif has exa; then
-	alias ls="exa"
+	alias ls="exa --group-directories-first"
 else
 	alias ls='ls $LS_OPTIONS'
 fi
