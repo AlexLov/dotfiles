@@ -7,7 +7,8 @@ foreground = 'd1d5da'
 regular = [
 	'586069',	# black 
 	'ea4a5a',	# red 
-	'34d058',	# green 
+	# '34d058',	# original green 
+	'a6e3a1', # green from catppuccin mocha
 	'ffea7f',	# yellow 
 	'2188ff',	# blue 
 	'b392f0',	# magenta 
