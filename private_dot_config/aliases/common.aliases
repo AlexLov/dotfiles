@@ -16,7 +16,7 @@ else
 	alias ls='ls $LS_OPTIONS'
 fi
 alias l="ls -l"
-alias ll="ls -la"
+alias ll="ls -lA"
 
 ## grep
 has rg && alias grep="rg"
