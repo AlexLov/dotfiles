@@ -1,0 +1,48 @@
+# $all is shorthand for 
+format = '$username$hostname$localip$shlvl$singularity$directory$vcsh$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$docker_context$package$bun$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$golang$haskell$helm$java$julia$kotlin$lua$nim$nodejs$ocaml$perl$php$pulumi$purescript$python$raku$rlang$red$ruby$rust$scala$swift$terraform$vlang$vagrant$zig$buf$nix_shell$conda$spack$memory_usage$aws$gcloud$openstack$azure$env_var$crystal$kubernetes$custom'
+#format = '$directory'
+add_newline = false
+
+[gcloud]
+disabled = true
+[aws]
+disabled = true
+[kubernetes]
+#format = '[☸ ($context)](red) '
+style = 'blue'
+format = '[$symbol$context]($style)[(@$namespace)](green)'
+disabled = false
+[kubernetes.context_aliases]
+"gke_(?P<var_project>[\\w-]+)_.*_(?P<var_cluster>[\\w-]+)" = "$var_cluster"
+
+# `pallete` supported since 1.11.0
+#palette = "catppuccin"
+
+## Define custom colors
+#[palettes.catppuccin]
+## Overwrite existing color
+#bg = "#111111"
+#fg = "#cdd6f4"
+#black = "#181825"
+#red = "#f38ba8"
+#green = "#a6e3a1"
+#yellow = "#f9e2af"
+#blue = "#89b4fa"
+##magenta = "#cba6f7"
+#magenta = "#c47fd5"
+#cyan = "#89dceb"
+#white = "#cdd6f4"
+#
+#bright_black = "#585b70"
+#bright_red = "#f38ba8"
+#bright_green = "#a6e3a1"
+#bright_yellow = "#f9e2af"
+#bright_blue = "#89b4fa"
+#bright_pink = "#f5c2e7"
+#bright_magenta = "#ce89df"
+#bright_cyan = "#94e2d5"
+#bright_white = "#a6adc8"
+#
+#gray = "#9399b2"
+#gray_dim = "#585b70"
+

@@ -1,0 +1,29 @@
+# Tmux
+~ Enter copy mode by Alt-Esc key
+~ Improve windows list
+~ Move resurrect session store to .cache or .local
+~ Add easy motion
+~ Add link opener
+~ Do not create new session if there is already sessions and just attach to the last attached one or ask for to which session user would like to attach
+~ Add a keybinding to show floating window with btop
+
+* Add a layout with cut out part left and right side of screen for better focus
+  - Main window in center (can be horizontaly splitted)
+  - Left pane with is status pane with various ongoing info, like date/time, weather, kbd layout etc. Not available to switch in or move.
+  - dump temp panes on the right side, should not be more than 6
+* Make use of paste buffers
+* Add config to chezmoi
+* Restore sessions on login instead of on executing tmux attach from foot
+* Close floating windows on Esc
+* Alt-Ctrl-s should be a toggle to choose session. So exit from the choosing should be on the same keybinding.
+* It would be nice to add fzf integration to session chooser
+* Session chooser should respect layout with left-sided sidebar
+* Cache weather to reduce amount of requests to wttr.in
+* Move tmux status messages/command prompt to popup
+* Save TODO file in floating session on "focus" lose, i.e. on closing popup
+* Make use of lock session
+* Different configs of starship w/ and w/o tmux on terminal
+
+
+## Someday
+* make tmux-starship plugin
