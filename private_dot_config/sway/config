@@ -9,11 +9,6 @@ include *.conf
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
-set $left y
-set $down n
-set $up e
-set $right o
 # Terminal emulator
 set $term foot
 set $term_tmux $term ~/.local/bin/attach_tmux
@@ -64,8 +59,8 @@ default_border pixel 2
 # Basics:
 #
 # Start a terminal
-bindsym $mod+w exec $term_tmux
-bindsym $mod+Shift+w exec $term
+bindsym $mod+j exec $term_tmux
+bindsym $mod+Shift+j exec $term
 # Start a browser
 bindsym $mod+b exec $browser
 
@@ -90,22 +85,12 @@ bindsym $mod+Shift+z exec swaynag -t warning -m 'You pressed the exit shortcut. 
 #
 # Moving around:
 #
-# Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
 # Or use $mod+[up|down|left|right]
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# Move the focused window with the same, but add Shift
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
 # Ditto, with arrow keys
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -118,13 +103,11 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Control+Tab workspace next
 
-bindsym $mod+Control+$right workspace next
-bindsym $mod+Control+$left workspace prev
 bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+Left workspace prev
 
 bindsym $mod+t workspace number 1
-bindsym $mod+h workspace number 2
+bindsym $mod+s workspace number 2
 
 # Switch to workspace
 bindsym $mod+1 workspace number 1
@@ -149,12 +132,10 @@ bindsym $mod+F8 workspace number 8
 bindsym $mod+F9 workspace number 9
 bindsym $mod+F10 workspace number 10
 # Move focused container to workspace
-bindsym $mod+Control+Shift+$right move container to workspace next
-bindsym $mod+Control+Shift+$left move container to workspace prev
 bindsym $mod+Control+Shift+Right move container to workspace next
 bindsym $mod+Control+Shift+Left move container to workspace prev
 
-bindsym $mod+Shift+h move container to workspace number 2
+bindsym $mod+Shift+s move container to workspace number 2
 bindsym $mod+Shift+t move container to workspace number 1
 
 bindsym $mod+Shift+1 move container to workspace number 1
@@ -186,7 +167,7 @@ bindsym $mod+Shift+F10 move container to workspace number 10
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
 # respectively.
-bindsym $mod+l splith
+bindsym $mod+h splith
 bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
@@ -204,12 +185,12 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # Screenshots require grim&slurp
-bindsym $mod+p exec swayshot region
-bindsym $mod+Shift+p exec swayshot region upload
-bindsym $mod+Ctrl+p exec swayshot window
-bindsym $mod+Ctrl+Shift+p exec swayshot window upload
-bindsym $mod+Mod1+p exec swayshot
-bindsym $mod+Mod1+Shift+p exec swayshot upload
+bindsym $mod+y exec swayshot region
+bindsym $mod+Shift+y exec swayshot region upload
+bindsym $mod+Ctrl+y exec swayshot window
+bindsym $mod+Ctrl+Shift+y exec swayshot window upload
+bindsym $mod+Mod1+y exec swayshot
+bindsym $mod+Mod1+Shift+y exec swayshot upload
 
 # Move focus to the parent container
 #bindsym $mod+u focus parent
@@ -229,20 +210,16 @@ bindsym $mod+Mod1+Shift+p exec swayshot upload
 # Resizing containers:
 #
 mode "resize" {
-	# left will shrink the containers width
-	# right will grow the containers width
-	# up will shrink the containers height
-	# down will grow the containers height
-	bindsym $left resize shrink width 10px
-	bindsym $down resize grow height 10px
-	bindsym $up resize shrink height 10px
-	bindsym $right resize grow width 10px
-
 	# Ditto, with arrow keys
 	bindsym Left resize shrink width 10px
 	bindsym Down resize grow height 10px
 	bindsym Up resize shrink height 10px
 	bindsym Right resize grow width 10px
+
+	bindsym Shift+Left resize shrink width 50px
+	bindsym Shift+Down resize grow height 50px
+	bindsym Shift+Up resize shrink height 50px
+	bindsym Shift+Right resize grow width 50px
 
 	# Return to default mode
 	bindsym Return mode "default"
@@ -252,6 +229,12 @@ bindsym $mod+r mode "resize"
 
 bindsym XF86MonBrightnessUp exec xbacklight +10
 bindsym XF86MonBrightnessDown exec xbacklight -10
+
+# pipewire + wireplumber
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 #
 # Status Bar:
@@ -265,3 +248,5 @@ for_window {
 		floating enable
 	}
 }
+
+xwayland enable
