@@ -249,4 +249,16 @@ for_window {
 	}
 }
 
-xwayland enable
+bindsym $mod+Ctrl+Shift+d exec discord
+assign [class="discord"] → workspace 9
+
+bindsym $mod+Ctrl+Shift+s exec flatpak run com.valvesoftware.Steam -newbigpicture
+for_window {
+	[class="[Ss]team"] {
+    # Move Steam client to 10th workspace 
+    move container to workspace number 10
+    inhibit_idle open
+    # Switch to that workspace
+    exec swaymsg workspace number 10
+	}
+}
